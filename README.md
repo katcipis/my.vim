@@ -7,9 +7,11 @@ My vimrc configuration, plugins and some other vim useful stuff (mainly taken fr
 
 ##Performing actions inside text objects
 
-Pattern: *action*i*delimiter*
+Pattern: *action* i *delimiter*
 
 The *delimiter* is what defines where the text object start and where it ends.
+
+The idea is that you are performing an *action* inside (helps remembering the *i* :-) the text object that is defined by the *delimiter* .
 
 Examples:
 
