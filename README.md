@@ -15,6 +15,6 @@ The idea is that you are performing an *action* inside (helps remembering the *i
 
 Examples:
 
-* Start change inside braces: *ci{*
-* Delete the contents of a string: *di"*
-* Yanking everything inside parentheses: *yi(*
+* Start change inside braces: <code>ci{</code>
+* Delete the contents of a string: <code>di"</code>
+* Yanking everything inside parentheses: <code>yi(</code>
