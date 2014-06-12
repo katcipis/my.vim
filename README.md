@@ -14,9 +14,46 @@ My vimrc configuration, plugins and some other vim useful stuff (mainly taken fr
 * Goto file under cursor : <code> gf </code>
 
 
-#Text objects
+# Project wide substitution
 
-##Performing actions inside text objects
+* vim -o [files list or regex]
+* set hidden
+* argdo s,[old-text],[new-text],ge
+* argdo update
+
+It is a good idea to put <code> set hidden </code> on your *.vimrc*.
+
+# Execute Ex command on a pattern
+
+Executing a command only on lines that matches a pattern:
+
+<code>
+    [range]g/[pattern]/[ex command]
+</code>
+
+Example, deleting all lines (entire file, using *%*) that contains *"vim"* on it:
+
+<code>
+    %g/vim/d
+</code>
+
+
+# Registers
+
+* Listing registers: <code> :reg </code>
+
+
+# Macros
+
+* Start recording macro : <code> q[register] </code>
+* Stop recording macro : <code> q </code>
+* Execute macro: <code> @[register] </code>
+* Execute macro on parallel: <code>:[range]normal @[register] </code>
+
+Remembering that any letter can be used as a register ;-).
+
+
+#Performing actions inside text objects
 
 Pattern: <code>[action]i[delimiter]</code>
 
@@ -31,7 +68,7 @@ Examples:
 * Yanking everything inside parentheses: <code>yi(</code>
 
 
-##Performing actions until a text object is found
+#Performing actions until a text object is found
 
 Pattern: <code>[action]t[char]</code>
 
