@@ -2,6 +2,7 @@
 
 My vimrc configuration, plugins and some other vim useful stuff (mainly taken from [Practical Vim: Edit Text at the Speed of Thought](http://pragprog.com/book/dnvim/practical-vim)).
 
+
 #Navigation
 
 * Centralize on cursor: <code>zz</code>
@@ -23,6 +24,7 @@ My vimrc configuration, plugins and some other vim useful stuff (mainly taken fr
 
 It is a good idea to put <code> set hidden </code> on your *.vimrc*.
 
+
 # Execute Ex command on a pattern
 
 Executing a command only on lines that matches a pattern:
@@ -41,6 +43,12 @@ Example, deleting all lines (entire file, using *%*) that contains *"vim"* on it
 # Registers
 
 * Listing registers: <code> :reg </code>
+* Executing command with specified register: <code> "[reg][command] </code>
+
+Examples:
+
+* Pasting from yank register (0): <code> "0P </code>
+* Yanking to the system clipboard register (+): <code> "+y </code>
 
 
 # Macros
@@ -51,6 +59,25 @@ Example, deleting all lines (entire file, using *%*) that contains *"vim"* on it
 * Execute macro on parallel: <code>:[range]normal @[register] </code>
 
 Remembering that any letter can be used as a register ;-).
+
+
+# Autocomplete
+
+* Start: <code> [C-n] </code>
+* Accept: <code> [C-y] </code>
+* Exit: <code> [C-e] </code>
+* Omni Complete: <code> [C-x][C-o] </code>
+
+
+# Spell Checker
+
+* Enable: <code> set spell </code>
+* Disable: <code> set nospell </code>
+* Next: <code> ]s </code>
+* Previous: <code> [s </code>
+* Correct word under cursor: <code> z= </code>
+* Add word to dict: <code> zg </code>
+* Remove word from dict: <code> zw </code>
 
 
 #Performing actions inside text objects
