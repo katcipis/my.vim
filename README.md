@@ -58,8 +58,6 @@ Examples:
 * Execute macro: <code> @[register] </code>
 * Execute macro on parallel: <code>:[range]normal @[register] </code>
 
-Remembering that any letter can be used as a register ;-).
-
 
 # Autocomplete
 
