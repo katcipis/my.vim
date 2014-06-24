@@ -78,13 +78,13 @@ Examples:
 * Remove word from dict: <code> zw </code>
 
 
-#Performing actions inside text objects
+#Perform action inside a text object
 
 Pattern: <code>[action]i[delimiter]</code>
 
 The *delimiter* is what defines where the text object start and where it ends.
 
-The idea is that you are performing an *action* inside (helps remembering the *i* :-) the text object that is defined by the *delimiter* .
+The idea is that you are performing an *action* inside (just remember that *i* means *inside*) the text object that is enclosed by the *delimiter*.
 
 Examples:
 
@@ -93,7 +93,7 @@ Examples:
 * Yanking everything inside parentheses: <code>yi(</code>
 
 
-#Performing actions until a text object is found
+#Perform action until a char is found
 
 Pattern: <code>[action]t[char]</code>
 
