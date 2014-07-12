@@ -11,9 +11,6 @@ set is scs magic  "Opções de Busca
 set history=10000 "Grava as últimas linhas do código
 set nu "Numeração de linhas
 set sm "Par de parênteses
-set ts=4 "Seta aonde o tab para
-set sw=4 "Número de colunas para ShiftWidth
-set et "Espaços no lugar de tabulação
 set showcmd "Mostra comandos incompletos
 set hlsearch "Prints searched words
 set nocp
@@ -29,10 +26,10 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Pathogen
+" Pathogen magic
 execute pathogen#infect()
 
-"More interesting stuff
+"matchit % magic
 syntax on
 runtime macros/matchit.vim
 
