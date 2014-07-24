@@ -115,3 +115,7 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
+
+let g:airline_theme = 'solarized'
+let g:airline_left_sep = '›'  " Slightly fancier than '>'
+let g:airline_right_sep = '‹' " Slightly fancier than '<'

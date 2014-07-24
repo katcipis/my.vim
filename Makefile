@@ -1,5 +1,7 @@
-install:
+install-vimrc:
 	cp .vimrc $(HOME)/.vimrc
+
+install: install-vimrc
 	cp -pr .vim $(HOME)
 	echo "Installing Vundle"
 	rm -rf $(HOME)/.vim/bundle
