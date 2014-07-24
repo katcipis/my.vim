@@ -51,7 +51,7 @@ call vundle#end() " required
 
 "display tabs and trailing spaces
 set list
-set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+set listchars=tab:>⋅,trail:⋅,nbsp:⋅
 
 " Get that filetype stuff happening
 filetype on
