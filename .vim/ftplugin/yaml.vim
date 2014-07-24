@@ -1,3 +1,2 @@
-set ts=2
-set sw=2
-set et "Espaços no lugar de tabulação
+set shiftwidth=2
+set softtabstop=2

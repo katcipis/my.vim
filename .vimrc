@@ -20,6 +20,11 @@ set wildmenu
 set wildmode=list:longest,full
 set spell
 
+"default indent settings
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
 
 "Vundle Install
 "set the runtime path to include Vundle and initialize
@@ -44,7 +49,9 @@ Plugin 'vim-scripts/JavaScript-Indent'
 
 call vundle#end() " required
 
-:match Error /\t/
+"display tabs and trailing spaces
+set list
+set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
 " Get that filetype stuff happening
 filetype on
