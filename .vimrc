@@ -19,15 +19,37 @@ set showmode
 set wildmenu
 set wildmode=list:longest,full
 set spell
+
+
+"Vundle Install
+"set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Generic plugins
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+
+" Javascript plugins
+Plugin 'moll/vim-node'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'vim-scripts/JavaScript-Indent'
+
+call vundle#end() " required
+
 :match Error /\t/
 
 " Get that filetype stuff happening
 filetype on
 filetype plugin on
 filetype indent on
-
-" Pathogen magic
-execute pathogen#infect()
 
 "matchit % magic
 syntax on
