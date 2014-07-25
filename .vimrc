@@ -20,6 +20,9 @@ set wildmenu
 set wildmode=list:longest,full
 set spell
 
+" Had this problem on one of the dev envs: http://vim.wikia.com/wiki/Backspace_and_delete_problems
+set backspace=2 " make backspace work like most other apps
+
 "default indent settings
 set shiftwidth=4
 set softtabstop=4
