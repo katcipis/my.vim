@@ -43,7 +43,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
+Bundle 'Lokaltog/vim-easymotion'
 
 " Javascript plugins
 Plugin 'moll/vim-node'
@@ -125,7 +125,3 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
-
-let g:airline_theme = 'solarized'
-let g:airline_left_sep = '›'  " Slightly fancier than '>'
-let g:airline_right_sep = '‹' " Slightly fancier than '<'
