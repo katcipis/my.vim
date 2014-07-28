@@ -45,7 +45,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
 
 " Javascript plugins
 Plugin 'moll/vim-node'
@@ -133,7 +132,4 @@ vmap <Leader>a: :Tabularize /:<CR>
 if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
     set laststatus=2                                   " required for vim-airline
     let g:airline#extensions#tabline#enabled = 1
-    let g:airline_theme = 'solarized'
-    let g:airline_left_sep='›'                         " Slightly fancier than '>'
-    let g:airline_right_sep='‹'                        " Slightly fancier than '<'
 endif
