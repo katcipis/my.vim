@@ -102,3 +102,10 @@ Examples:
 * Delete everything until a *{* is found and start editing: <code>ct{</code>
 * Delete everything until a *(* is found: <code>dt(</code>
 * Yanking everything until a *)* is found: <code>yt)</code>
+
+
+#FTPlugin
+
+It is an awesome way to have different ways to configure vim according to the file type.
+
+Check [here](http://vim.wikia.com/wiki/Keep_your_vimrc_file_clean) for more details.
