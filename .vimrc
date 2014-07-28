@@ -128,6 +128,12 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
 
-"Vim airline stuff
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
+
+" vim-airline
+if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
+    set laststatus=2                                   " required for vim-airline
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline_theme = 'solarized'
+    let g:airline_left_sep='›'                         " Slightly fancier than '>'
+    let g:airline_right_sep='‹'                        " Slightly fancier than '<'
+endif
