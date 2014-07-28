@@ -43,7 +43,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
 
 " Javascript plugins
 Plugin 'moll/vim-node'
@@ -125,3 +127,7 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
+
+"Vim airline stuff
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
