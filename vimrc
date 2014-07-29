@@ -45,6 +45,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'bling/vim-airline'
+Plugin 'spf13/vim-autoclose'
+Plugin 'tpope/vim-markdown'
+Plugin 'gcmt/wildfire.vim'
 
 " Javascript plugins
 Plugin 'moll/vim-node'
