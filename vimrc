@@ -130,6 +130,8 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
 
+"Fast build and test running
+nnoremap <Leader>b :make check<CR>
 
 " vim-airline
 if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
