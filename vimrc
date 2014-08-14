@@ -1,24 +1,31 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
-set autoindent       " always set autoindenting on
-set copyindent       " copy the previous indentation on autoindenting
-set smarttab         " insert tabs on the start of a line according to shiftwidth, not tabstop
-set undolevels=1000  " use many muchos levels of undo
+set autoindent       
+set copyindent       
+set smarttab         
+set undolevels=1000  
 set nobackup
 set noswapfile
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so
-set is scs magic  "Opções de Busca
-set history=10000 "Grava as últimas linhas do código
-set nu "Numeração de linhas
-set sm "Par de parênteses
-set showcmd "Mostra comandos incompletos
-set hlsearch "Prints searched words
+set is scs magic  
+set history=10000 
+set nu 
+set sm 
+set showcmd 
 set nocp
-set hidden "Dont have to save changes on current buffer when opening new buffer
 set showmode
 set wildmenu
 set wildmode=list:longest,full
 set spell
+
+"Dont have to save changes on current buffer when opening new buffer
+set hidden 
+"
+"Prints searched words
+set hlsearch 
+
+" Automatically re-read the file if it has changed
+set autoread
 
 " Had this problem on one of the dev envs: http://vim.wikia.com/wiki/Backspace_and_delete_problems
 set backspace=2 " make backspace work like most other apps
@@ -29,6 +36,13 @@ set softtabstop=4
 set expandtab
 set autoindent
 
+" Check if a colorscheme exists
+" http://stackoverflow.com/a/5703164
+function! HasColorScheme(scheme)
+    let path = '~/.vim/bundle/vim-colorschemes/colors/' . a:scheme . '.vim'
+    return filereadable(expand(path))
+endfunction
+
 "Vundle Install
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -37,7 +51,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Generic plugins
+" plugins
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
@@ -48,6 +62,10 @@ Plugin 'bling/vim-airline'
 Plugin 'spf13/vim-autoclose'
 Plugin 'tpope/vim-markdown'
 Plugin 'gcmt/wildfire.vim'
+Plugin 'flazz/vim-colorschemes'
+
+" Hell yeah latex !!!
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 " Javascript plugins
 Plugin 'moll/vim-node'
@@ -59,6 +77,10 @@ call vundle#end() " required
 "display tabs and trailing spaces
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+
+" Highlight only the lines that go past 80 characters
+highlight ColorColumn ctermbg=green guibg=green
+call matchadd('ColorColumn', '\%82v', 100)
 
 " Get that filetype stuff happening
 filetype on
@@ -99,10 +121,14 @@ nnoremap <Leader>P "+P
 vnoremap <Leader>y "+y
 nnoremap <Leader>y "+y
 
-"Fast Tab navigation 
-nnoremap <Leader>j gT
-nnoremap <Leader>k gt
-nnoremap <Leader>t :tabnew 
+"Fast buffer navigation 
+nnoremap <Leader>j :bprevious<CR>
+nnoremap <Leader>k :bnext<CR>
+nnoremap <Leader>t :enew<CR>
+nnoremap <Leader>c :bd<CR>
+
+"Fast nerdtree stuff :D
+nnoremap <Leader>o :NERDTreeToggle<CR>
 
 "Fast quickfix navigation
 nnoremap <Leader>n :cnext<CR>
@@ -137,4 +163,20 @@ nnoremap <Leader>b :make check<CR>
 if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
     set laststatus=2                                   " required for vim-airline
     let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#fnamemod = ':t'
+    let g:airline_enable_branch = 1
+    let g:airline_enable_syntastic = 1
+    let g:airline_powerline_fonts = 1
+endif
+
+" Syntastic Settings
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_enable_signs = 1
+
+" Must be loaded after the vim-colorschemes bundle
+if HasColorScheme('moria')
+    colorscheme moria
 endif
