@@ -57,7 +57,6 @@ Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'spf13/vim-autoclose'
 Plugin 'tpope/vim-markdown'
@@ -78,9 +77,9 @@ call vundle#end() " required
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
-" Highlight only the lines that go past 80 characters
+" Highlight only the lines that go past 120 characters
 highlight ColorColumn ctermbg=green guibg=green
-call matchadd('ColorColumn', '\%82v', 100)
+call matchadd('ColorColumn', '\%122v', 100)
 
 " Get that filetype stuff happening
 filetype on
@@ -124,7 +123,6 @@ nnoremap <Leader>y "+y
 "Fast buffer navigation 
 nnoremap <Leader>j :bprevious<CR>
 nnoremap <Leader>k :bnext<CR>
-nnoremap <Leader>t :enew<CR>
 nnoremap <Leader>c :bd<CR>
 
 "Fast nerdtree stuff :D
@@ -132,7 +130,7 @@ nnoremap <Leader>o :NERDTreeToggle<CR>
 
 "Fast quickfix navigation
 nnoremap <Leader>n :cnext<CR>
-nnoremap <Leader>N :cprev<CR>
+nnoremap <Leader>nn :cprev<CR>
 
 "Disable highlighting for current search only
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
@@ -161,7 +159,7 @@ nnoremap <Leader>b :make check<CR>
 
 " vim-airline
 if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
-    set laststatus=2                                   " required for vim-airline
+    set laststatus=2
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#fnamemod = ':t'
     let g:airline_enable_branch = 1
