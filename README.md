@@ -1,3 +1,20 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Introduction](#introduction)
+- [Navigation](#navigation)
+- [Project wide substitution](#project-wide-substitution)
+- [Execute Ex command on a pattern](#execute-ex-command-on-a-pattern)
+- [Registers](#registers)
+- [Macros](#macros)
+- [Autocomplete](#autocomplete)
+- [Spell Checker](#spell-checker)
+- [Perform action inside a text object](#perform-action-inside-a-text-object)
+- [Perform action until a char is found](#perform-action-until-a-char-is-found)
+- [FTPlugin](#ftplugin)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 #Introduction
 
 My vimrc configuration, plugins and some other vim useful stuff (mainly taken from [Practical Vim: Edit Text at the Speed of Thought](http://pragprog.com/book/dnvim/practical-vim)).
