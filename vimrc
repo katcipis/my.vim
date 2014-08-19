@@ -175,6 +175,6 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_signs = 1
 
 " Must be loaded after the vim-colorschemes bundle
-"if HasColorScheme('moria')
-    "colorscheme moria
-"endif
+if HasColorScheme('wombat256')
+    colorscheme wombat256
+endif
