@@ -128,6 +128,9 @@ nnoremap <Leader>c :bd<CR>
 "Fast nerdtree stuff :D
 nnoremap <Leader>o :NERDTreeToggle<CR>
 
+"If i got bored from nerdtree
+nnoremap <Leader>t :edit 
+
 "Fast quickfix navigation
 nnoremap <Leader>n :cnext<CR>
 nnoremap <Leader>nn :cprev<CR>
@@ -173,6 +176,6 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_signs = 1
 
 " Must be loaded after the vim-colorschemes bundle
-if HasColorScheme('wombat256')
-    colorscheme wombat256
+if HasColorScheme('wombat256mod')
+    colorscheme wombat256mod
 endif
