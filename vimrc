@@ -127,7 +127,7 @@ nnoremap <Leader>c :bd<CR>
 "Fast nerdtree stuff :D
 nnoremap <Leader>o :NERDTreeToggle<CR>
 
-"If i got bored from nerdtree
+"If i get bored from nerdtree
 nnoremap <Leader>t :edit 
 
 "Fast quickfix navigation
