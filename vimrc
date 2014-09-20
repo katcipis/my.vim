@@ -12,7 +12,6 @@ set history=10000
 set nu 
 set sm 
 set showcmd 
-set nocp
 set showmode
 set wildmenu
 set wildmode=list:longest,full
