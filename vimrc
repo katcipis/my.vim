@@ -15,7 +15,6 @@ set showcmd
 set showmode
 set wildmenu
 set wildmode=list:longest,full
-set spell
 
 "Dont have to save changes on current buffer when opening new buffer
 set hidden 
