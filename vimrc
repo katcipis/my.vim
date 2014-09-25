@@ -16,7 +16,7 @@ set showmode
 set wildmenu
 set wildmode=list:longest,full
 
-"Dont have to save changes on current buffer when opening new buffer
+"Don't have to save changes on current buffer when opening new buffer
 set hidden 
 "
 "Prints searched words
@@ -138,9 +138,6 @@ nnoremap <Leader>nn :cprev<CR>
 "Disable highlighting for current search only
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-"Better spell checking
-hi clear SpellBad
-hi SpellBad cterm=underline
 
 "Indent entire file
 nnoremap <Leader>= mmgg=G'mzz
@@ -179,3 +176,8 @@ let g:syntastic_enable_signs = 1
 if HasColorScheme('wombat256mod')
     colorscheme wombat256mod
 endif
+
+"Better spell checking
+hi clear SpellBad
+hi SpellBad cterm=underline
+set spell
