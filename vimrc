@@ -69,7 +69,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/JavaScript-Indent'
 
 " Scala stuff, for Gatling
-" Plugin 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-scala'
 
 call vundle#end() " required
 
