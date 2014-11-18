@@ -8,3 +8,6 @@ install: install-vimrc
 	rm -rf $(HOME)/.vim/bundle
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
+	echo "Workaround for the vim-scala plugin" #https://github.com/derekwyatt/vim-scala/issues/75
+	mkdir -p ~/.vim/ftdetect
+	cp $(HOME)/.vim/bundle/vim-scala/ftdetect/scala.vim $(HOME)/.vim/ftdetect
