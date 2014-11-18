@@ -70,7 +70,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/JavaScript-Indent'
 
 " Scala stuff, for Gatling
-Plugin 'derekwyatt/vim-scala'
+" Plugin 'derekwyatt/vim-scala'
 
 call vundle#end() " required
 
@@ -129,7 +129,7 @@ nnoremap <Leader>c :bd<CR>
 "Fast nerdtree stuff :D
 nnoremap <Leader>o :NERDTreeToggle<CR>
 
-"If i get bored from nerdtree
+"If I get bored from nerdtree
 nnoremap <Leader>t :edit 
 
 "Fast quickfix navigation
