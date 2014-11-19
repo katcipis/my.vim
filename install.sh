@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "Copying vimrc"
 cp vimrc $HOME/.vimrc
 rm -rf $HOME/.vim
