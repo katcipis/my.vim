@@ -36,7 +36,7 @@ My vimrc configuration, plugins and some other vim useful stuff (mainly taken fr
 
 * vim -o [files list or regex]
 * set hidden
-* argdo s,[old-text],[new-text],ge
+* argdo %s,[old-text],[new-text],ge
 * argdo update
 
 It is a good idea to put <code> set hidden </code> on your *.vimrc*.
