@@ -123,7 +123,7 @@ nnoremap <Leader>y "+y
 "Fast buffer navigation 
 nnoremap <Leader>j :bprevious<CR>
 nnoremap <Leader>k :bnext<CR>
-nnoremap <Leader>c :bd<CR>
+nnoremap <Leader>q :bd<CR>
 
 "Fast nerdtree stuff :D
 nnoremap <Leader>o :NERDTreeToggle<CR>
