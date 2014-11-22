@@ -9,6 +9,10 @@ install:
 	rm -rf $(HOME)/.vim
 	cp -pr vim $(HOME)/.vim
 
+clean:
+	echo "Cleaning up vim stuff"
+	rm -rf $(HOME)/.vim*
+
 install-plugins: install
 	echo "Installing Pathogen"
 	mkdir -p $(VIM_AUTOLOAD)
@@ -19,7 +23,7 @@ install-plugins: install
 	./install-plugin.sh syntastic https://github.com/scrooloose/syntastic.git $(PATHOGEN_BUNDLE_DIR)/syntastic
 	./install-plugin.sh nerdcommenter https://github.com/scrooloose/nerdcommenter.git $(PATHOGEN_BUNDLE_DIR)/nerd-commenter
 	./install-plugin.sh fugitive https://github.com/tpope/vim-fugitive.git $(PATHOGEN_BUNDLE_DIR)/fugitive
-	./install-plugin.sh airline https://github.com/bling/vim-airline $(PATHOGEN_BUNDLE_DIR)/airline
+	./install-plugin.sh airline https://github.com/bling/vim-airline $(PATHOGEN_BUNDLE_DIR)/vim-airline
 	./install-plugin.sh vim-markdown https://github.com/tpope/vim-markdown $(PATHOGEN_BUNDLE_DIR)/vim-markdown
 	./install-plugin.sh wildfire https://github.com/gcmt/wildfire.vim $(PATHOGEN_BUNDLE_DIR)/wildfire
 	./install-plugin.sh vim-colorschemes https://github.com/flazz/vim-colorschemes $(PATHOGEN_BUNDLE_DIR)/vim-colorschemes
