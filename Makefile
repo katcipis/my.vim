@@ -32,3 +32,4 @@ install-plugins: install
 	./install-plugin.sh vim-javascript-syntax https://github.com/jelera/vim-javascript-syntax $(PATHOGEN_BUNDLE_DIR)/vim-javascript-syntax
 	./install-plugin.sh JavaScript-Indent https://github.com/vim-scripts/JavaScript-Indent $(PATHOGEN_BUNDLE_DIR)/JavaScript-Indent
 	./install-plugin.sh vim-scala https://github.com/derekwyatt/vim-scala $(PATHOGEN_BUNDLE_DIR)/vim-scala
+	./install-plugin.sh vim-go https://github.com/fatih/vim-go.git $(PATHOGEN_BUNDLE_DIR)/vim-go
