@@ -41,8 +41,10 @@ function! HasColorScheme(scheme)
     return filereadable(expand(path))
 endfunction
 
+
 "Vundle Install
 "set the runtime path to include Vundle and initialize
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -59,6 +61,9 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-markdown'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'flazz/vim-colorschemes'
+
+" GoLang
+Plugin 'fatih/vim-go'
 
 " Hell yeah latex !!!
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
