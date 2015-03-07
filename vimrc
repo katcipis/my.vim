@@ -167,8 +167,8 @@ if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
     set laststatus=2
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#fnamemod = ':t'
-    let g:airline_enable_branch = 1
-    let g:airline_enable_syntastic = 1
+    let g:airline#extensions#branch#enabled = 1
+    let g:airline#extensions#syntastic#enabled = 1
     let g:airline_powerline_fonts = 1
 endif
 
