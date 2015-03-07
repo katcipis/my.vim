@@ -34,15 +34,44 @@ set softtabstop=4
 set expandtab
 set autoindent
 
-"Lets infect some good stuff :D
-execute pathogen#infect()
-
 " Check if a colorscheme exists
 " http://stackoverflow.com/a/5703164
 function! HasColorScheme(scheme)
     let path = '~/.vim/bundle/vim-colorschemes/colors/' . a:scheme . '.vim'
     return filereadable(expand(path))
 endfunction
+
+"Vundle Install
+"set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" plugins
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-markdown'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'flazz/vim-colorschemes'
+
+" Hell yeah latex !!!
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+
+" Javascript plugins
+Plugin 'moll/vim-node'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'vim-scripts/JavaScript-Indent'
+
+" Scala stuff, for Gatling
+Plugin 'derekwyatt/vim-scala'
+
+call vundle#end() " required
 
 "display tabs and trailing spaces
 set list
