@@ -105,15 +105,6 @@ inoremap <DOWN> <Nop>
 inoremap <LEFT> <Nop>
 inoremap <RIGHT> <Nop>
 
-"Load CTags for current dir
-nmap <silent> <F5> :!ctags -R <CR>
-
-"Move faster on CTags
-map <C-LEFT> :tp<CR> 
-map <C-RIGHT> :tn<CR>
-map <C-UP> <C-]>
-map <C-DOWN> <C-t>
-
 " Press i to enter insert mode, and ii to exit.
 imap ii <Esc>
 
@@ -143,7 +134,6 @@ nnoremap <Leader>nn :cprev<CR>
 "Disable highlighting for current search only
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-
 "Indent entire file
 nnoremap <Leader>= mmgg=G'mzz
 
@@ -158,9 +148,6 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
-
-"Fast build and test running
-nnoremap <Leader>b :make check<CR>
 
 " vim-airline
 if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
