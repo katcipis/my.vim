@@ -128,8 +128,8 @@ nnoremap <Leader>o :NERDTreeToggle<CR>
 nnoremap <Leader>t :edit 
 
 "Fast quickfix navigation
-nnoremap <Leader>n :cnext<CR>
-nnoremap <Leader>nn :cprev<CR>
+map <C-LEFT> :cprev<CR> 
+map <C-RIGHT> :cnext<CR>
 
 "Disable highlighting for current search only
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
