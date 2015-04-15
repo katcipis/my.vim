@@ -7,4 +7,4 @@ map <C-UP> :GoDef<CR>
 nnoremap <Leader>d :GoDoc<CR>
 
 "Fast build and test running
-nnoremap <Leader>b :make check<CR>
+nnoremap <Leader>b :!make check<CR>
