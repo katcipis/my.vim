@@ -12,3 +12,4 @@ install-plugins: install
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim 
 	echo "Installing Plugins"
 	vim +PluginInstall +qall
+	vim +GoInstallBinaries +qall
