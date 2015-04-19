@@ -11,7 +11,8 @@ install-plugins: install
 	rm -rf $(HOME)/.vim/bundle 
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim 
 	echo "Installing Plugins"
-	vim +PluginInstall +qall
-	vim +GoInstallBinaries +qall
+	yes | vim +PluginInstall +qall
 	echo "Compile YCM"
 	cd $(HOME)/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer --gocode-completer
+	echo "Installing Go binaries"
+	vim +GoInstallBinaries +qall
