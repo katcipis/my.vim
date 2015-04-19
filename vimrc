@@ -62,6 +62,9 @@ Plugin 'tpope/vim-markdown'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'flazz/vim-colorschemes'
 
+" Auto completion
+Plugin 'Valloric/YouCompleteMe'
+
 " GoLang
 Plugin 'fatih/vim-go'
 
