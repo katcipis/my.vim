@@ -13,3 +13,5 @@ install-plugins: install
 	echo "Installing Plugins"
 	vim +PluginInstall +qall
 	vim +GoInstallBinaries +qall
+	echo "Compile YCM"
+	cd $(HOME)/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer --gocode-completer
