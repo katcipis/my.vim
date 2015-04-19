@@ -1,5 +1,8 @@
 all: install-plugins
 
+update-vimrc:
+	cp vimrc $(HOME)/.vimrc
+
 install: 
 	echo "Copying vimrc"
 	cp vimrc $(HOME)/.vimrc

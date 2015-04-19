@@ -52,7 +52,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " plugins
-Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -64,6 +63,9 @@ Plugin 'flazz/vim-colorschemes'
 
 " Auto completion
 Plugin 'Valloric/YouCompleteMe'
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
 
 " GoLang
 Plugin 'fatih/vim-go'
@@ -171,6 +173,9 @@ let g:syntastic_enable_signs = 1
 if HasColorScheme('wombat256mod')
     colorscheme wombat256mod
 endif
+
+" Select snippet
+let g:UltiSnipsExpandTrigger="<c-j>"
 
 "Better spell checking
 hi clear SpellBad
