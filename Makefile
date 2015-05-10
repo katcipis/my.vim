@@ -1,5 +1,8 @@
 all: install-plugins
 
+bootstrap:
+	sudo apt-get install -y vim-gnome build-essential cmake
+
 update-vimrc:
 	cp vimrc $(HOME)/.vimrc
 
