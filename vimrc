@@ -145,7 +145,7 @@ nnoremap <Leader>= mmgg=G'mzz
 nnoremap <Leader>s yiw:%s,<C-r>",
 
 "vimgrep word under cursor
-nnoremap <Leader>g yiw:vimgrep /<C-r>"/g 
+nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **
 
 "Tabularize fun :-)
 nmap <Leader>a= :Tabularize /=<CR>
