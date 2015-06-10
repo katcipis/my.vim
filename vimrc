@@ -81,6 +81,13 @@ Plugin 'vim-scripts/JavaScript-Indent'
 " Scala stuff, for Gatling
 Plugin 'derekwyatt/vim-scala'
 
+" Clojure
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fireplace'
+
 call vundle#end() " required
 
 "display tabs and trailing spaces
