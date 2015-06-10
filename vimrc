@@ -61,11 +61,10 @@ Plugin 'tpope/vim-markdown'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'flazz/vim-colorschemes'
 
-" Auto completion
-Plugin 'Valloric/YouCompleteMe'
-
-" Track the engine.
-Plugin 'SirVer/ultisnips'
+" Autocomplete stuff
+Bundle 'Shougo/neocomplete'
+Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
 
 " GoLang
 Plugin 'fatih/vim-go'
@@ -181,8 +180,8 @@ if HasColorScheme('wombat256mod')
     colorscheme wombat256mod
 endif
 
-" Select snippet
-let g:UltiSnipsExpandTrigger="<c-j>"
+" Enable neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 "Better spell checking
 hi clear SpellBad
