@@ -53,7 +53,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " plugins
 Plugin 'godlygeek/tabular'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
@@ -127,11 +126,10 @@ nnoremap <Leader>j :bprevious<CR>
 nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
 
-"Fast nerdtree stuff :D
-nnoremap <Leader>o :NERDTreeToggle<CR>
-
-"If I get bored from nerdtree
+"Opening stuff :D
 nnoremap <Leader>t :edit 
+nnoremap <Leader>o :vsplit 
+
 
 "Fast quickfix navigation
 map <C-LEFT> :cprev<CR> 
