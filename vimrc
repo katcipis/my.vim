@@ -78,6 +78,7 @@ Plugin 'derekwyatt/vim-scala'
 " Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
+Plugin 'kovisoft/slimv'
 
 call vundle#end() " required
 
@@ -99,14 +100,16 @@ syntax on
 runtime macros/matchit.vim
 
 "Lets not work with arrows anymore :-)
-nnoremap <UP> <Nop>
-nnoremap <DOWN> <Nop>
-nnoremap <LEFT> <Nop>
-nnoremap <RIGHT> <Nop>
 inoremap <UP> <Nop>
 inoremap <DOWN> <Nop>
 inoremap <LEFT> <Nop>
 inoremap <RIGHT> <Nop>
+
+"Lets use the arrows to work with windows :D
+nnoremap <RIGHT> <C-w>l
+nnoremap <LEFT> <C-w>h
+nnoremap <UP> <C-w>k
+nnoremap <DOWN> <C-w>j
 
 " Press i to enter insert mode, and ii to exit.
 imap ii <Esc>
@@ -171,9 +174,6 @@ let g:syntastic_enable_signs = 1
 if HasColorScheme('wombat256mod')
     colorscheme wombat256mod
 endif
-
-" Enable neocomplete
-let g:neocomplete#enable_at_startup = 1
 
 "Better spell checking
 hi clear SpellBad
