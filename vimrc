@@ -61,11 +61,6 @@ Plugin 'tpope/vim-markdown'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'flazz/vim-colorschemes'
 
-" Autocomplete stuff
-Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
-
 " GoLang
 Plugin 'fatih/vim-go'
 
@@ -82,9 +77,6 @@ Plugin 'derekwyatt/vim-scala'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-salve'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fireplace'
 
 call vundle#end() " required
