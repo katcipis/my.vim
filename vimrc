@@ -103,10 +103,12 @@ inoremap <UP> <Nop>
 inoremap <DOWN> <Nop>
 inoremap <LEFT> <Nop>
 inoremap <RIGHT> <Nop>
+nnoremap <RIGHT> <Nop>
+nnoremap <LEFT> <Nop>
 
 "Lets use the arrows to work with windows :D
-nnoremap <RIGHT> <C-w>l
-nnoremap <LEFT> <C-w>h
+nnoremap <C-k> <C-w>l
+nnoremap <C-j> <C-w>h
 nnoremap <UP> <C-w>k
 nnoremap <DOWN> <C-w>j
 
