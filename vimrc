@@ -60,6 +60,11 @@ Plugin 'tpope/vim-markdown'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'flazz/vim-colorschemes'
 
+" Autocomplete stuff
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
 " GoLang
 Plugin 'fatih/vim-go'
 
@@ -74,9 +79,7 @@ Plugin 'vim-scripts/JavaScript-Indent'
 " Scala stuff, for Gatling
 Plugin 'derekwyatt/vim-scala'
 
-" Clojure
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
+" Lisp
 Plugin 'kovisoft/slimv'
 
 call vundle#end() " required
