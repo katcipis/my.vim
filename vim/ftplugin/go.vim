@@ -4,8 +4,8 @@ set noexpandtab
 set nolist
 
 map <C-UP> :GoDef<CR>
-nnoremap <Leader>d :GoDoc<CR>
-nnoremap <Leader>i :GoImports<CR>
+nmap <Leader>d <Plug>(go-doc-vertical)
+nmap <Leader>i :GoImports<CR>
 
 "Fast build and test running
-nnoremap <Leader>b :!make check<CR>
+nmap <Leader>b :!make check<CR>
