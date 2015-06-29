@@ -60,10 +60,8 @@ Plugin 'tpope/vim-markdown'
 Plugin 'gcmt/wildfire.vim'
 Plugin 'flazz/vim-colorschemes'
 
-" Autocomplete stuff
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+" Autocomplete
+Plugin 'Valloric/YouCompleteMe'
 
 " GoLang
 Plugin 'fatih/vim-go'

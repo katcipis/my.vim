@@ -1,7 +1,7 @@
 all: install-plugins
 
 bootstrap:
-	sudo apt-get install -y vim-gnome
+	sudo apt-get install -y vim-gnome build-essential cmake python-dev
 
 update-vimrc:
 	cp vimrc $(HOME)/.vimrc
@@ -18,5 +18,7 @@ install-plugins: install
 	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim 
 	echo "Installing Plugins"
 	yes | vim +PluginInstall +qall
+	echo "Compile YCM"
+	cd $(HOME)/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer --gocode-completer
 	echo "Installing Go binaries"
 	vim +GoInstallBinaries +qall
