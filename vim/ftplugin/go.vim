@@ -9,3 +9,6 @@ nmap <Leader>i :GoImports<CR>
 
 "Fast build and test running
 nmap <Leader>b :!make check<CR>
+
+"vimgrep word under cursor
+nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.go
