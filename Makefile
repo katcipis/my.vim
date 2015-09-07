@@ -1,7 +1,7 @@
 all: install-plugins
 
 bootstrap:
-	sudo apt-get install -y vim-gnome build-essential cmake python-dev
+	sudo pacman -S cmake
 
 update-vimrc:
 	cp vimrc $(HOME)/.vimrc
