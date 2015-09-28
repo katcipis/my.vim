@@ -120,6 +120,12 @@ Examples:
 * Delete everything until a *(* is found: <code>dt(</code>
 * Yanking everything until a *)* is found: <code>yt)</code>
 
+#Forcing a tab
+
+When tabs are being replaced by spaces it can be hard to force a tab.
+On **INSERT** mode just run: <code>[C-v]TAB</code>.
+
+This can be used to force any special character.
 
 #FTPlugin
 
