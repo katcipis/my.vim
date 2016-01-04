@@ -1,8 +1,5 @@
 all: install-plugins
 
-bootstrap:
-	sudo pacman -S cmake
-
 update-vimrc:
 	cp vimrc $(HOME)/.vimrc
 
