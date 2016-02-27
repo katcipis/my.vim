@@ -128,8 +128,8 @@ nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
 
 "Opening stuff :D
-nnoremap <Leader>t :edit 
-nnoremap <Leader>o :vsplit 
+nnoremap <Leader>t :edit
+nnoremap <Leader>o :vsplit
 
 
 "Fast quickfix navigation
@@ -146,7 +146,7 @@ nnoremap <Leader>= mmgg=G'mzz
 nnoremap <Leader>s yiw:%s,<C-r>",
 
 "vimgrep word under cursor
-nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **
+nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.suffix
 
 "Tabularize fun :-)
 nmap <Leader>a= :Tabularize /=<CR>
