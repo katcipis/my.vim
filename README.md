@@ -41,7 +41,6 @@ My vimrc configuration, plugins and some other vim useful stuff (mainly taken fr
 
 It is a good idea to put <code> set hidden </code> on your *.vimrc*.
 
-
 # Execute Ex command on a pattern
 
 Executing a command only on lines that matches a pattern:

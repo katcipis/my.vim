@@ -1,24 +1,26 @@
 all: install-plugins
 
-bootstrap:
-	sudo apt-get install -y vim-gnome python-dev
+config-editor:
+	sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+	sudo update-alternatives --config vi
+	sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+	sudo update-alternatives --config vim
+	sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+	sudo update-alternatives --config editor
 
-update-vimrc:
-	cp vimrc $(HOME)/.vimrc
+bootstrap:
+	sudo add-apt-repository ppa:neovim-ppa/unstable
+	sudo apt-get update
+	sudo apt-get install neovim
+	sudo apt-get install python-dev python-pip python3-dev python3-pip python3.5-dev
+	sudo pip3 install neovim
 
 install: 
 	echo "Copying vimrc"
-	cp vimrc $(HOME)/.vimrc
-	rm -rf $(HOME)/.vim
-	cp -pr vim $(HOME)/.vim
+	cp vimrc $(HOME)/.config/nvim/init.vim
+	#TODO FTPLUGIN
 
 install-plugins: install
-	echo "Installing Vundle"
-	rm -rf $(HOME)/.vim/bundle 
-	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim 
-	echo "Installing Plugins"
-	yes | vim +PluginInstall +qall
-	echo "Compile YCM"
-	cd $(HOME)/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer --gocode-completer
-	echo "Installing Go binaries"
-	vim +GoInstallBinaries +qall
+	echo "Installing vim-plug"
+	curl -fLo $(HOME)/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim +PlugInstall
