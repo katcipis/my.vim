@@ -144,14 +144,12 @@ nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
 
 " vim-airline
-if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
-    set laststatus=2
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#fnamemod = ':t'
-    let g:airline#extensions#branch#enabled = 1
-    let g:airline#extensions#syntastic#enabled = 1
-    let g:airline_powerline_fonts = 1
-endif
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " Syntastic Settings
 let g:syntastic_always_populate_loc_list=1
