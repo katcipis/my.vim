@@ -1,3 +1,4 @@
+NVIM_HOME=$(HOME)/.config/nvim
 all: install-plugins
 
 config-editor:
@@ -17,8 +18,9 @@ bootstrap:
 
 install: 
 	echo "Copying vimrc"
-	cp vimrc $(HOME)/.config/nvim/init.vim
-	#TODO FTPLUGIN
+	cp vimrc $(NVIM_HOME)/init.vim
+	echo "Install ftplugin"
+	cp -pr ./ftplugin  $(NVIM_HOME)
 
 install-plugins: install
 	echo "Installing vim-plug"
