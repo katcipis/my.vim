@@ -34,14 +34,10 @@ set softtabstop=4
 set expandtab
 set autoindent
 
-" Check if a colorscheme exists
-" http://stackoverflow.com/a/5703164
-function! HasColorScheme(scheme)
-    let path = '~/.vim/bundle/vim-colorschemes/colors/' . a:scheme . '.vim'
-    return filereadable(expand(path))
-endfunction
-
 call plug#begin('.config/nvim/plugged')
+
+"Clorscheme
+Plug 'morhetz/gruvbox'
 
 " plugins
 Plug 'godlygeek/tabular'
@@ -169,3 +165,7 @@ let g:deoplete#enable_at_startup = 1
 hi clear SpellBad
 hi SpellBad cterm=underline
 set spell
+
+"Colorscheme config
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme gruvbox
