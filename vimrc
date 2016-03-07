@@ -34,7 +34,7 @@ set softtabstop=4
 set expandtab
 set autoindent
 
-call plug#begin('.config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 "Clorscheme
 Plug 'morhetz/gruvbox'
