@@ -34,53 +34,42 @@ set softtabstop=4
 set expandtab
 set autoindent
 
-" Check if a colorscheme exists
-" http://stackoverflow.com/a/5703164
-function! HasColorScheme(scheme)
-    let path = '~/.vim/bundle/vim-colorschemes/colors/' . a:scheme . '.vim'
-    return filereadable(expand(path))
-endfunction
+call plug#begin('~/.config/nvim/plugged')
 
-
-"Vundle Install
-"set the runtime path to include Vundle and initialize
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"Clorscheme
+Plug 'morhetz/gruvbox'
 
 " plugins
-Plugin 'godlygeek/tabular'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-markdown'
-Plugin 'gcmt/wildfire.vim'
-Plugin 'flazz/vim-colorschemes'
+Plug 'godlygeek/tabular'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-markdown'
+Plug 'gcmt/wildfire.vim'
+Plug 'flazz/vim-colorschemes'
 
 " Autocomplete
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " GoLang
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " Hell yeah latex !!!
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 " Javascript plugins
-Plugin 'moll/vim-node'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'vim-scripts/JavaScript-Indent'
+Plug 'moll/vim-node'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'vim-scripts/JavaScript-Indent'
 
 " Scala stuff, for Gatling
-Plugin 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-scala'
 
 " Lisp
-Plugin 'kovisoft/slimv'
+Plug 'kovisoft/slimv'
 
-call vundle#end() " required
+call plug#end()
 
 "display tabs and trailing spaces
 set list
@@ -128,8 +117,8 @@ nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
 
 "Opening stuff :D
-nnoremap <Leader>t :edit
-nnoremap <Leader>o :vsplit
+nnoremap <Leader>t :edit 
+nnoremap <Leader>o :vsplit 
 
 
 "Fast quickfix navigation
@@ -155,26 +144,27 @@ nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
 
 " vim-airline
-if filereadable(expand("~/.vim/bundle/vim-airline/plugin/airline.vim"))
-    set laststatus=2
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#fnamemod = ':t'
-    let g:airline#extensions#branch#enabled = 1
-    let g:airline#extensions#syntastic#enabled = 1
-    let g:airline_powerline_fonts = 1
-endif
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " Syntastic Settings
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_signs = 1
 
-" Must be loaded after the vim-colorschemes bundle
-if HasColorScheme('wombat256mod')
-    colorscheme wombat256mod
-endif
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 "Better spell checking
 hi clear SpellBad
 hi SpellBad cterm=underline
 set spell
+
+"Colorscheme config
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme gruvbox
+set background=dark    " Setting dark mode
