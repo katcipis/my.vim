@@ -165,5 +165,6 @@ hi SpellBad cterm=underline
 set spell
 
 "Colorscheme config
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme gruvbox
 set background=dark    " Setting dark mode
