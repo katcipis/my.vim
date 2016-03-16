@@ -11,3 +11,10 @@ nmap <Leader>r :GoRename<CR>
 
 "vimgrep word under cursor
 nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.go
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
