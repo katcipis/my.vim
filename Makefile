@@ -1,4 +1,4 @@
-NVIM_HOME=$(XDG_CONFIG_HOME)/nvim
+NVIM_HOME=$(HOME)/.config/nvim
 
 all: install
 	echo "Installing vim-plug"
