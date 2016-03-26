@@ -3,12 +3,12 @@ NVIM_HOME=$(XDG_CONFIG_HOME)/nvim
 all: install
 	echo "Installing vim-plug"
 	curl -fLo $(NVIM_HOME)/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	vim +PlugInstall
-	vim +UpdateRemotePlugins
-	vim +GoInstallBinaries
+	nvim +PlugInstall
+	nvim +UpdateRemotePlugins
+	nvim +GoInstallBinaries
 
 bootstrap:
-	sudo pacman --noconfirm -S neovim
+	sudo pacman --noconfirm -S neovim python-neovim
 
 install: 
 	echo "Copying vimrc"
