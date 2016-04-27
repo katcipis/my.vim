@@ -1,17 +1,17 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
-set autoindent       
-set copyindent       
-set smarttab         
-set undolevels=1000  
+set autoindent
+set copyindent
+set smarttab
+set undolevels=1000
 set nobackup
 set noswapfile
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.so
-set is scs magic  
-set history=10000 
-set nu 
-set sm 
-set showcmd 
+set is scs magic
+set history=10000
+set nu
+set sm
+set showcmd
 set showmode
 set wildmenu
 set wildmode=list:longest,full
@@ -75,9 +75,9 @@ call plug#end()
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
-" Highlight only the lines that go past 120 characters
+" Highlight only the lines that go past 80 characters
 highlight ColorColumn ctermbg=green guibg=green
-call matchadd('ColorColumn', '\%122v', 100)
+call matchadd('ColorColumn', '\%122v', 80)
 
 " Get that filetype stuff happening
 filetype on
@@ -100,9 +100,6 @@ nnoremap <LEFT> <C-w>h
 nnoremap <UP> <C-w>k
 nnoremap <DOWN> <C-w>j
 
-" Press i to enter insert mode, and ii to exit.
-imap ii <Esc>
-
 "Easy paste from system clipboard
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
@@ -119,7 +116,6 @@ nnoremap <Leader>c :bd<CR>
 "Opening stuff :D
 nnoremap <Leader>t :edit 
 nnoremap <Leader>o :vsplit 
-
 
 "Fast quickfix navigation
 map <C-LEFT> :cprev<CR> 
