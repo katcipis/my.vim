@@ -63,6 +63,9 @@ Plug 'moll/vim-node'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/JavaScript-Indent'
 
+" Python plugins
+Plug 'davidhalter/jedi-vim'
+
 " Scala stuff, for Gatling
 Plug 'derekwyatt/vim-scala'
 
