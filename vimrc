@@ -92,11 +92,6 @@ syntax on
 runtime macros/matchit.vim
 
 "Lets not work with arrows anymore :-)
-inoremap <UP> <Nop>
-inoremap <DOWN> <Nop>
-inoremap <LEFT> <Nop>
-inoremap <RIGHT> <Nop>
-
 "Lets use the arrows to work with windows :D
 nnoremap <RIGHT> <C-w>l
 nnoremap <LEFT> <C-w>h
