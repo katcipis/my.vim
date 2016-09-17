@@ -46,7 +46,10 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-markdown'
 Plug 'gcmt/wildfire.vim'
 Plug 'flazz/vim-colorschemes'
+
+" Working with invisible stuff :-)
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'Yggdroot/indentLine'
 
 " Add cool tabs for buffers
 Plug 'ap/vim-buftabline'
@@ -57,6 +60,9 @@ Plug 'itchyny/lightline.vim'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+" JSON
+Plug 'elzr/vim-json'
 
 " GoLang
 Plug 'fatih/vim-go'
@@ -71,6 +77,7 @@ Plug 'vim-scripts/JavaScript-Indent'
 
 " Python plugins
 Plug 'davidhalter/jedi-vim'
+Plug 'hynek/vim-python-pep8-indent'
 
 " Scala stuff, for Gatling
 Plug 'derekwyatt/vim-scala'
