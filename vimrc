@@ -43,14 +43,26 @@ Plug 'morhetz/gruvbox'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
-Plug 'bling/vim-airline'
 Plug 'tpope/vim-markdown'
 Plug 'gcmt/wildfire.vim'
 Plug 'flazz/vim-colorschemes'
 
+" Working with invisible stuff :-)
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'Yggdroot/indentLine'
+
+" Add cool tabs for buffers
+Plug 'ap/vim-buftabline'
+
+" Like airline, but smaller
+Plug 'itchyny/lightline.vim'
+
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+" JSON
+Plug 'elzr/vim-json'
 
 " GoLang
 Plug 'fatih/vim-go'
@@ -65,6 +77,7 @@ Plug 'vim-scripts/JavaScript-Indent'
 
 " Python plugins
 Plug 'davidhalter/jedi-vim'
+Plug 'hynek/vim-python-pep8-indent'
 
 " Scala stuff, for Gatling
 Plug 'derekwyatt/vim-scala'
@@ -136,14 +149,6 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
-
-" vim-airline
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline_powerline_fonts = 1
 
 " Syntastic Settings
 let g:syntastic_always_populate_loc_list=1
