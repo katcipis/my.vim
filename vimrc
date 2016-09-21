@@ -17,10 +17,10 @@ set wildmenu
 set wildmode=list:longest,full
 
 "Don't have to save changes on current buffer when opening new buffer
-set hidden 
+set hidden
 "
 "Prints searched words
-set hlsearch 
+set hlsearch
 
 " Automatically re-read the file if it has changed
 set autoread
@@ -49,7 +49,6 @@ Plug 'flazz/vim-colorschemes'
 
 " Working with invisible stuff :-)
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Yggdroot/indentLine'
 
 " Add cool tabs for buffers
 Plug 'ap/vim-buftabline'
