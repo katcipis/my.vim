@@ -93,7 +93,7 @@ set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
 " Highlight only the lines that go past 80 characters
 highlight ColorColumn ctermbg=green guibg=green
-call matchadd('ColorColumn', '\%122v', 80)
+call matchadd('ColorColumn', '\%80v', 80)
 
 " Get that filetype stuff happening
 filetype on
@@ -119,17 +119,17 @@ nnoremap <Leader>P "+P
 vnoremap <Leader>y "+y
 nnoremap <Leader>y "+y
 
-"Fast buffer navigation 
+"Fast buffer navigation
 nnoremap <Leader>j :bprevious<CR>
 nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
 
 "Opening stuff :D
-nnoremap <Leader>t :edit 
-nnoremap <Leader>o :vsplit 
+nnoremap <Leader>t :edit
+nnoremap <Leader>o :vsplit
 
 "Fast quickfix navigation
-map <C-LEFT> :cprev<CR> 
+map <C-LEFT> :cprev<CR>
 map <C-RIGHT> :cnext<CR>
 
 "Disable highlighting for current search only
