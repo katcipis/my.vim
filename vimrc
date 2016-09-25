@@ -37,7 +37,7 @@ set autoindent
 call plug#begin('~/.config/nvim/plugged')
 
 "Clorscheme
-Plug 'morhetz/gruvbox'
+Plug 'katcipis/gruvbox'
 
 " plugins
 Plug 'godlygeek/tabular'
