@@ -125,8 +125,8 @@ nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
 
 "Opening stuff :D
-nnoremap <Leader>t :edit
-nnoremap <Leader>o :vsplit
+nnoremap <Leader>t :edit 
+nnoremap <Leader>o :vsplit 
 
 "Fast quickfix navigation
 map <C-LEFT> :cprev<CR>
