@@ -45,7 +45,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-markdown'
 Plug 'gcmt/wildfire.vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'majutsushi/tagbar'
 
 " Working with invisible stuff :-)
 Plug 'ntpeters/vim-better-whitespace'
@@ -166,6 +166,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_list_type = "quickfix"
+
+" Toggle tagbar
+nmap <F8> :TagbarToggle<CR>
 
 "Better spell checking
 hi clear SpellBad
