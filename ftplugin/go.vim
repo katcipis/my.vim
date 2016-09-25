@@ -3,8 +3,9 @@ set softtabstop=8
 set noexpandtab
 set nolist
 
-map <C-UP> :GoDef<CR>
-nmap <Leader>d <Plug>(go-doc-vertical)
+nmap <C-UP> <Plug>(go-def-vertical)
+" Not working very well :-(
+"nmap <Leader>d <Plug>(go-doc-browser)
 nmap <Leader>i :GoImports<CR>
 nmap <Leader>l :GoMetaLinter<CR>
 nmap <Leader>r :GoRename<CR>
