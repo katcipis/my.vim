@@ -8,7 +8,7 @@ all: uninstall install
 	nvim +GoInstallBinaries
 
 bootstrap:
-	sudo pacman --noconfirm -S neovim python-neovim
+	sudo pacman --noconfirm -S neovim python-neovim ctags
 	sudo ln -s /usr/bin/nvim /usr/bin/vi
 	sudo ln -s /usr/bin/nvim /usr/bin/vim
 

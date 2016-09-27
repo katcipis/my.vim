@@ -17,10 +17,10 @@ set wildmenu
 set wildmode=list:longest,full
 
 "Don't have to save changes on current buffer when opening new buffer
-set hidden 
+set hidden
 "
 "Prints searched words
-set hlsearch 
+set hlsearch
 
 " Automatically re-read the file if it has changed
 set autoread
@@ -37,7 +37,7 @@ set autoindent
 call plug#begin('~/.config/nvim/plugged')
 
 "Clorscheme
-Plug 'morhetz/gruvbox'
+Plug 'katcipis/gruvbox'
 
 " plugins
 Plug 'godlygeek/tabular'
@@ -45,11 +45,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-markdown'
 Plug 'gcmt/wildfire.vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'majutsushi/tagbar'
 
 " Working with invisible stuff :-)
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Yggdroot/indentLine'
 
 " Add cool tabs for buffers
 Plug 'ap/vim-buftabline'
@@ -94,7 +93,7 @@ set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
 " Highlight only the lines that go past 80 characters
 highlight ColorColumn ctermbg=green guibg=green
-call matchadd('ColorColumn', '\%122v', 80)
+call matchadd('ColorColumn', '\%80v', 80)
 
 " Get that filetype stuff happening
 filetype on
@@ -120,7 +119,7 @@ nnoremap <Leader>P "+P
 vnoremap <Leader>y "+y
 nnoremap <Leader>y "+y
 
-"Fast buffer navigation 
+"Fast buffer navigation
 nnoremap <Leader>j :bprevious<CR>
 nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
@@ -130,7 +129,7 @@ nnoremap <Leader>t :edit
 nnoremap <Leader>o :vsplit 
 
 "Fast quickfix navigation
-map <C-LEFT> :cprev<CR> 
+map <C-LEFT> :cprev<CR>
 map <C-RIGHT> :cnext<CR>
 
 "Disable highlighting for current search only
@@ -167,6 +166,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_list_type = "quickfix"
+
+" Toggle tagbar
+nmap <F8> :TagbarToggle<CR>
 
 "Better spell checking
 hi clear SpellBad

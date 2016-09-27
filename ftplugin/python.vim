@@ -12,3 +12,4 @@ nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.py
 
 "Fast Debug breakpoint insertion
 nnoremap <Leader>b Oimport pdb; pdb.set_trace()<Esc><CR>
+map <buffer> <Leader>f :call Flake8()<CR>
