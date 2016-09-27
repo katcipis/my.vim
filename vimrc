@@ -175,5 +175,5 @@ set spell
 
 "Colorscheme config
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme gruvbox
+:silent! colorscheme gruvbox
 set background=dark    " Setting dark mode
