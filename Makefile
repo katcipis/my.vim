@@ -9,8 +9,6 @@ all: uninstall install
 
 bootstrap:
 	sudo pacman --noconfirm -S neovim python-neovim ctags
-	sudo ln -s /usr/bin/nvim /usr/bin/vi
-	sudo ln -s /usr/bin/nvim /usr/bin/vim
 
 install: 
 	echo "Copying vimrc"
