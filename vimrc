@@ -58,7 +58,7 @@ Plug 'itchyny/lightline.vim'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+"Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " JSON
 Plug 'elzr/vim-json'
