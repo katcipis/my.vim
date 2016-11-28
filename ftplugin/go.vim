@@ -9,6 +9,7 @@ nmap <Leader>d <Plug>(go-doc)
 nmap <Leader>i :GoImports<CR>
 nmap <Leader>l :GoMetaLinter<CR>
 nmap <Leader>r <Plug>(go-rename)
+nmap <F5> <Plug>(go-coverage)
 
 "vimgrep word under cursor
 nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.go

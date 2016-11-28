@@ -158,8 +158,6 @@ let g:syntastic_enable_signs = 1
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
-" Toggle tagbar
-nmap <F8> :TagbarToggle<CR>
 
 "Better spell checking
 hi clear SpellBad
