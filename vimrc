@@ -64,7 +64,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'elzr/vim-json'
 
 " GoLang
-Plug 'fatih/vim-go'
+Plug 'katcipis/vim-go'
 
 " Hell yeah latex !!!
 Plug 'LaTeX-Box-Team/LaTeX-Box'
@@ -157,15 +157,6 @@ let g:syntastic_enable_signs = 1
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
-
-" Go Syntax Stuff
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_list_type = "quickfix"
 
 " Toggle tagbar
 nmap <F8> :TagbarToggle<CR>
