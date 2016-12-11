@@ -39,18 +39,27 @@ call plug#begin('~/.config/nvim/plugged')
 "Clorscheme
 Plug 'katcipis/gruvbox'
 
-" plugins
+"Align stuff
 Plug 'godlygeek/tabular'
+"Comment code
 Plug 'scrooloose/nerdcommenter'
+
+"Syntax correction
 Plug 'scrooloose/syntastic'
+
+"markdown magic
 Plug 'tpope/vim-markdown'
+
+"Extended object selection
 Plug 'gcmt/wildfire.vim'
+
+"tagbar without airline
 Plug 'majutsushi/tagbar'
 
-" Working with invisible stuff :-)
+"Working with invisible stuff :-)
 Plug 'ntpeters/vim-better-whitespace'
 
-" Add cool tabs for buffers
+"Add cool tabs for buffers
 Plug 'ap/vim-buftabline'
 
 " Like airline, but smaller
@@ -84,6 +93,9 @@ Plug 'derekwyatt/vim-scala'
 
 " Lisp
 Plug 'kovisoft/slimv'
+
+" Fuzzy file searching
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -125,8 +137,8 @@ nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
 
 "Opening stuff :D
-nnoremap <Leader>t :edit 
-nnoremap <Leader>o :vsplit 
+"nnoremap <Leader>t :edit 
+let g:ctrlp_map = '<Leader>t'
 
 "Fast quickfix navigation
 map <C-LEFT> :cprev<CR>
