@@ -5,7 +5,7 @@ set nolist
 
 " Code navigation
 nmap <C-UP> gd
-nmap <C-DOWN>:GoReferrers<CR>
+nmap <C-DOWN> :GoReferrers<CR>
 
 " Not working very well :-(
 nmap <Leader>d <Plug>(go-doc)
