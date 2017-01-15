@@ -3,10 +3,12 @@ set softtabstop=8
 set noexpandtab
 set nolist
 
+" Code navigation
 nmap <C-UP> gd
+nmap <C-DOWN>:GoReferrers<CR>
+
 " Not working very well :-(
 nmap <Leader>d <Plug>(go-doc)
-nmap <Leader>i :GoImports<CR>
 nmap <Leader>l :GoMetaLinter<CR>
 nmap <Leader>r <Plug>(go-rename)
 nmap <F5> <Plug>(go-coverage)
