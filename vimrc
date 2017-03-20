@@ -45,6 +45,7 @@ Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdcommenter'
 
 "Syntax correction
+"Plug 'w0rp/ale'
 Plug 'scrooloose/syntastic'
 
 "markdown magic
@@ -67,7 +68,7 @@ Plug 'itchyny/lightline.vim'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
-"Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " JSON
 Plug 'elzr/vim-json'
@@ -84,7 +85,8 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/JavaScript-Indent'
 
 " Python plugins
-"Plug 'davidhalter/jedi-vim'
+Plug 'google/yapf'
+Plug 'davidhalter/jedi-vim'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'nvie/vim-flake8'
 
