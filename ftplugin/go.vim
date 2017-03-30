@@ -12,6 +12,7 @@ nmap <Leader>d <Plug>(go-doc)
 nmap <Leader>l :GoMetaLinter<CR>
 nmap <Leader>i :GoImplements<CR>
 nmap <Leader>r <Plug>(go-rename)
+nmap <Leader>b <Plug>(go-test)
 nmap <F5> <Plug>(go-coverage)
 
 "vimgrep word under cursor
