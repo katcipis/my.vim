@@ -75,19 +75,76 @@ function! s:run(bin_name, source, target)
   return out
 endfunction
 
+function! s:listtype(listtype) abort
+  if g:nash_list_type == "locationlist"
+    return "locationlist"
+  elseif g:nash_list_type == "quickfix"
+    return "quickfix"
+  else
+    return a:listtype
+  endif
+endfunction
+
 " Populate populate the location list with the given items
 function! s:populate(listtype, items, title) abort
+  let l:listtype = s:listtype(a:listtype)
+  if l:listtype == "locationlist"
+    call setloclist(0, a:items, 'r')
+
+    " The last argument ({what}) is introduced with 7.4.2200:
+    " https://github.com/vim/vim/commit/d823fa910cca43fec3c31c030ee908a14c272640
+    if has("patch-7.4.2200") | call setloclist(0, [], 'a', {'title': a:title}) | endif
+  else
     call setqflist(a:items, 'r')
     if has("patch-7.4.2200") | call setqflist([], 'a', {'title': a:title}) | endif
+  endif
 endfunction
 
 " show_errors opens a location list and shows the given errors. If the given
 " errors is empty, it closes the the location list
 function! s:show_errors(errors) abort
-  let l:listtype = "quickfix"
+  let l:listtype = "locationlist"
   if !empty(a:errors)
-    call s:populate(l:listtype, a:errors, 'Format')
+        call s:populate(l:listtype, a:errors, 'Format')
     echohl Error | echomsg "nashfmt returned error" | echohl None
+  endif
+
+  " this closes the window if there are no errors or it opens
+  " it if there is any
+  call s:window(l:listtype, len(a:errors))
+endfunction
+
+" Window opens the list with the given height up to 10 lines maximum.
+function! s:window(listtype, ...) abort
+  let l:listtype = s:listtype(a:listtype)
+  " we don't use lwindow to close the location list as we need also the
+  " ability to resize the window. So, we are going to use lopen and lclose
+  " for a better user experience. If the number of errors in a current
+  " location list increases/decreases, cwindow will not resize when a new
+  " updated height is passed. lopen in the other hand resizes the screen.
+  if !a:0 || a:1 == 0
+    if l:listtype == "locationlist"
+      lclose
+    else
+      cclose
+    endif
+    return
+  endif
+
+  let height = get(g:, "nash_list_height", 0)
+  if height == 0
+    " prevent creating a large location height for a large set of numbers
+    if a:1 > 10
+      let height = 10
+    else
+      let height = a:1
+    endif
+  endif
+
+  if l:listtype == "locationlist"
+    exe 'lopen ' . height
+  else
+    exe 'copen ' . height
   endif
 endfunction
 
@@ -166,6 +223,7 @@ function! s:update_file(source, target)
 endfunction
 
 let g:nash_fmt_command = "nashfmt"
+let g:nash_list_type = "quickfix"
 let g:nash_fmt_fail_silently = 0
 
 autocmd BufWritePre *.sh call s:format()
