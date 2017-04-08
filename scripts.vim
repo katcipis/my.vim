@@ -1,5 +1,6 @@
 :let filepath = expand("%:p")
 :echo filepath
 :let result = system("nashfmt " . filepath)
-:echo result
-setfiletype nash
+:if v:shell_error == "0"
+    setfiletype nash
+:endif
