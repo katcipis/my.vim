@@ -16,6 +16,7 @@ install:
 	cp vimrc $(NVIM_HOME)/init.vim
 	echo "Install ftplugin"
 	cp -pr ./ftplugin  $(NVIM_HOME)
+	cp -pr ./ftdetect  $(NVIM_HOME)
 
 uninstall:
 	rm -rf $(NVIM_HOME)
