@@ -226,4 +226,4 @@ let g:nash_fmt_command = "nashfmt"
 let g:nash_list_type = "quickfix"
 let g:nash_fmt_fail_silently = 0
 
-autocmd BufWritePre *.sh call s:format()
+"autocmd BufWritePre *.sh call s:format()
