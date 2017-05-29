@@ -85,10 +85,10 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/JavaScript-Indent'
 
 " Python plugins
-Plug 'google/yapf'
-Plug 'davidhalter/jedi-vim'
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'nvie/vim-flake8'
+" Plug 'google/yapf'
+" Plug 'davidhalter/jedi-vim'
+" Plug 'hynek/vim-python-pep8-indent'
+" Plug 'nvie/vim-flake8'
 
 " Scala stuff, for Gatling
 Plug 'derekwyatt/vim-scala'
@@ -176,7 +176,7 @@ let g:deoplete#enable_at_startup = 1
 "Better spell checking
 hi clear SpellBad
 hi SpellBad cterm=underline
-" set spell
+set spell
 
 "Colorscheme config
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
