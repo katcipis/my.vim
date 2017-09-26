@@ -67,8 +67,8 @@ Plug 'ap/vim-buftabline'
 Plug 'itchyny/lightline.vim'
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " JSON
 Plug 'elzr/vim-json'
@@ -170,7 +170,7 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_signs = 1
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 
 "Better spell checking
