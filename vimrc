@@ -158,6 +158,10 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
 
+"Lambda moderfocker
+imap <Leader>l <C-k>l*
+nmap <Leader>l :startinsert<CR><C-k>l*<Esc>
+
 " Syntastic Settings
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list = 2
