@@ -37,7 +37,7 @@ set autoindent
 call plug#begin('~/.config/nvim/plugged')
 
 "Clorscheme
-Plug 'katcipis/gruvbox'
+Plug 'morhetz/gruvbox'
 
 "Align stuff
 Plug 'godlygeek/tabular'
@@ -74,7 +74,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'elzr/vim-json'
 
 " GoLang
-Plug 'katcipis/vim-go'
+Plug 'fatih/vim-go'
 
 " Hell yeah latex !!!
 Plug 'LaTeX-Box-Team/LaTeX-Box'
