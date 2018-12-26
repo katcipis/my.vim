@@ -66,10 +66,6 @@ Plug 'ap/vim-buftabline'
 " Like airline, but smaller
 Plug 'itchyny/lightline.vim'
 
-" Autocomplete
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'zchee/deoplete-go', { 'do': 'make'}
-
 " JSON
 Plug 'elzr/vim-json'
 
@@ -133,7 +129,7 @@ nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
 
 "Opening stuff :D
-"nnoremap <Leader>t :edit 
+"nnoremap <Leader>t :edit
 let g:ctrlp_map = '<Leader>t'
 
 "Fast quickfix navigation
@@ -158,18 +154,10 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
 
-"Lambda moderfocker
-imap <Leader>l <C-k>l*
-nmap <Leader>l :startinsert<CR><C-k>l*<Esc>
-
 " Syntastic Settings
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_signs = 1
-
-" Use deoplete.
-" let g:deoplete#enable_at_startup = 1
-
 
 "Better spell checking
 hi clear SpellBad
