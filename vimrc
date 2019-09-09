@@ -34,6 +34,10 @@ set softtabstop=4
 set expandtab
 set autoindent
 
+" because macos
+let mapleader='q'
+let maplocalleader='\'
+
 call plug#begin('~/.config/nvim/plugged')
 
 "Clorscheme
