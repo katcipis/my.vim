@@ -17,7 +17,6 @@ install:
 	cp vimrc $(NVIM_HOME)/init.vim
 	echo "Install ftplugin"
 	cp -pr ./ftplugin  $(NVIM_HOME)
-	cp -pr ./ftdetect  $(NVIM_HOME)
 	mkdir -p $(NVIM_SPELL)
 	curl "http://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.spl" -o $(NVIM_SPELL)/en.utf-8.spl
 
