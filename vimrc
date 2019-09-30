@@ -45,11 +45,11 @@ Plug 'morhetz/gruvbox'
 
 "Align stuff
 Plug 'godlygeek/tabular'
+
 "Comment code
 Plug 'scrooloose/nerdcommenter'
 
 "Syntax correction
-"Plug 'w0rp/ale'
 Plug 'scrooloose/syntastic'
 
 "markdown magic
@@ -80,7 +80,6 @@ Plug 'fatih/vim-go'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 " Javascript plugins
-Plug 'moll/vim-node'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/JavaScript-Indent'
 
@@ -92,6 +91,11 @@ Plug 'kovisoft/slimv'
 
 " Fuzzy file searching
 Plug 'ctrlpvim/ctrlp.vim'
+
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 call plug#end()
 
@@ -162,6 +166,9 @@ vmap <Leader>a: :Tabularize /:<CR>
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_signs = 1
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 "Better spell checking
 hi clear SpellBad

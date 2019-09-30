@@ -10,8 +10,9 @@ all: uninstall install
 
 bootstrap:
 	sudo pacman --noconfirm -S neovim python-neovim ctags
+	pip3 install jedi
 
-install: 
+install:
 	echo "Copying vimrc"
 	mkdir -p $(NVIM_HOME)
 	cp vimrc $(NVIM_HOME)/init.vim
