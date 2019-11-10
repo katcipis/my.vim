@@ -15,6 +15,8 @@ install:
 	cp vimrc $(VIMRC)
 	@echo "Install ftplugin"
 	cp -pr ./ftplugin  $(VIMHOME)
+	@echo "Install plugins"
+	vim +PluginInstall +qall
 
 uninstall:
 	rm -rf $(VIMHOME)
