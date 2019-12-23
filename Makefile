@@ -1,5 +1,6 @@
 VIMHOME=$(HOME)/.vim
 VIMRC=$(HOME)/.vimrc
+VIMPKG=$(VIMHOME)/pack/3rdparty
 
 all: install
 
@@ -10,8 +11,12 @@ install:
 	cp vimrc $(VIMRC)
 	@echo "Install ftplugin"
 	cp -pr ./ftplugin  $(VIMHOME)
+
+.PHONY: plugins
+plugins:
 	@echo "Install plugins"
-	#TODO
+	mkdir -p $(VIMPKG)/start
+	cp -r ./vendor/* $(VIMPKG)/start
 
 .PHONY: uninstall
 uninstall:

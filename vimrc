@@ -28,10 +28,6 @@ set softtabstop=4
 set expandtab
 set autoindent
 
-" because macos
-let mapleader='q'
-let maplocalleader='\'
-
 "display tabs and trailing spaces
 set list
 set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
@@ -46,14 +42,6 @@ nnoremap <RIGHT> <C-w>l
 nnoremap <LEFT> <C-w>h
 nnoremap <UP> <C-w>k
 nnoremap <DOWN> <C-w>j
-
-"Easy paste from system clipboard
-nnoremap <Leader>p "+p
-nnoremap <Leader>P "+P
-
-"Easy copy to system clipboard
-vnoremap <Leader>y "+y
-nnoremap <Leader>y "+y
 
 "Fast buffer navigation
 nnoremap <Leader>j :bprevious<CR>
