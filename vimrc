@@ -71,3 +71,9 @@ nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.suffix
 hi clear SpellBad
 hi SpellBad cterm=underline
 set spell
+
+"colorscheme
+set termguicolors
+set background=dark
+colorscheme gruvbox
+let g:airline_theme='violet'
