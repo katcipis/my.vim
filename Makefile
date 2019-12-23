@@ -15,6 +15,7 @@ install:
 .PHONY: plugins
 plugins:
 	@echo "Install plugins"
+	rm -rf $(VIMPKG)
 	mkdir -p $(VIMPKG)/start
 	cp -r ./vendor/* $(VIMPKG)/start
 

@@ -12,10 +12,11 @@ function vendor() {
     mkdir -p "${vendordir}"
 
     for dep in ${deps}; do
+        local plugin_name=$(echo "${dep}" | cut -d "/" -f 2)
         local cloneurl=$(printf "git@github.com:%s.git" ${dep})
-        local clonedir=$(printf "%s/%s" ${vendordir} ${dep})
-        printf "vendoring plugin[%s]\n" ${dep}
-        printf "cloning[%s]\n" ${cloneurl}
+        local clonedir=$(printf "%s/%s" ${vendordir} ${plugin_name})
+        printf "vendoring plugin[%s]\n" "${dep}"
+        printf "cloning[%s] to [%s]\n" "${cloneurl}" "${clonedir}"
         git clone "${cloneurl}" "${clonedir}"
     done
 
