@@ -8,3 +8,4 @@ vim-airline/vim-airline
 vim-airline/vim-airline-themes
 morhetz/gruvbox
 lifepillar/vim-solarized8
+tpope/vim-fugitive
