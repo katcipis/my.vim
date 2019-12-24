@@ -1,3 +1,4 @@
+set termguicolors
 set autoindent
 set copyindent
 set smarttab
@@ -9,6 +10,8 @@ set history=10000
 set nu
 set showcmd
 set showmode
+filetype plugin on
+syntax on
 
 "Don't have to save changes on current buffer when opening new buffer
 set hidden
@@ -73,7 +76,12 @@ hi SpellBad cterm=underline
 set spell
 
 "colorscheme
-set termguicolors
+" WHY: Crappy vim 8 true color stuff
+" See: :h xterm-true-color
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 set background=dark
-colorscheme gruvbox
+let g:gruvbox_italic=1
 let g:airline_theme='violet'
+colorscheme gruvbox

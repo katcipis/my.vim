@@ -2,10 +2,10 @@ VIMHOME=$(HOME)/.vim
 VIMRC=$(HOME)/.vimrc
 VIMPKG=$(VIMHOME)/pack/3rdparty
 
-all: install
+all: config
 
-.PHONY: install
-install:
+.PHONY: config
+config:
 	@echo "Copying vimrc"
 	mkdir -p $(VIMHOME)
 	cp vimrc $(VIMRC)
