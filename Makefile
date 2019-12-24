@@ -2,7 +2,7 @@ VIMHOME=$(HOME)/.vim
 VIMRC=$(HOME)/.vimrc
 VIMPKG=$(VIMHOME)/pack/3rdparty
 
-all: config
+all: plugins config
 
 .PHONY: config
 config:
