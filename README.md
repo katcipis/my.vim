@@ -1,19 +1,17 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- mdtocstart -->
+
+# Table of Contents
 
 - [Introduction](#introduction)
-- [Navigation](#navigation)
+- [Install](#install)
 - [Project wide substitution](#project-wide-substitution)
-- [Execute Ex command on a pattern](#execute-ex-command-on-a-pattern)
-- [Registers](#registers)
 - [Macros](#macros)
-- [Autocomplete](#autocomplete)
-- [Spell Checker](#spell-checker)
 - [Perform action inside a text object](#perform-action-inside-a-text-object)
 - [Perform action until a char is found](#perform-action-until-a-char-is-found)
+- [Forcing a tab](#forcing-a-tab)
 - [FTPlugin](#ftplugin)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- mdtocend -->
 
 # Introduction
 
