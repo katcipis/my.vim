@@ -15,9 +15,12 @@ function vendor() {
         local plugin_name=$(echo "${dep}" | cut -d "/" -f 2)
         local cloneurl=$(printf "git@github.com:%s.git" ${dep})
         local clonedir=$(printf "%s/%s" ${vendordir} ${plugin_name})
-        printf "vendoring plugin[%s]\n" "${dep}"
-        printf "cloning[%s] to [%s]\n" "${cloneurl}" "${clonedir}"
+
+        printf "\nvendoring plugin[%s]\n" "${dep}"
+        printf "cloning[%s] to [%s]\n\n" "${cloneurl}" "${clonedir}"
+
         git clone "${cloneurl}" "${clonedir}"
+        rm -rf "${clonedir}/.git"
     done
 
     echo
