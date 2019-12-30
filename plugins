@@ -1,11 +1,7 @@
 scrooloose/nerdcommenter
 gcmt/wildfire.vim
-elzr/vim-json
-LaTeX-Box-Team/LaTeX-Box
-kovisoft/slimv
 vim-airline/vim-airline
 vim-airline/vim-airline-themes
 morhetz/gruvbox
-lifepillar/vim-solarized8
 tpope/vim-fugitive
 fatih/vim-go
