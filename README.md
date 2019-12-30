@@ -21,6 +21,18 @@ My vimrc configuration, plugins and some other vim useful stuff
 (mainly taken from [Practical Vim: Edit Text at the Speed of Thought](http://pragprog.com/book/dnvim/practical-vim)).
 
 
+# Install
+
+Just run:
+
+```
+make
+```
+
+And it will install all plugins and configs. It will overwrite the current
+configs and plugins.
+
+
 # Project wide substitution
 
 * vim -o [files list or regex]
@@ -67,7 +79,7 @@ Examples:
 # Forcing a tab
 
 When tabs are being replaced by spaces it can be hard to force a tab.
-On **INSERT** mode just run: <code>[C-v]TAB</code>.
+On **INSERT** mode just use: <code>[C-v]TAB</code>.
 
 This can be used to force any special character.
 
