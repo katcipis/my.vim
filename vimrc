@@ -18,7 +18,7 @@ set wildmode=list:longest,full
 
 "Don't have to save changes on current buffer when opening new buffer
 set hidden
-"
+
 "Prints searched words
 set hlsearch
 
