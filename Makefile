@@ -1,25 +1,29 @@
-NVIM_HOME=$(HOME)/.config/nvim
-NVIM_SPELL=$(NVIM_HOME)/spell
+VIMHOME=$(HOME)/.vim
+VIMRC=$(HOME)/.vimrc
+VIMPKG=$(VIMHOME)/pack/3rdparty
 
-all: uninstall install
-	echo "Installing vim-plug"
-	curl -fLo $(NVIM_HOME)/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	nvim +PlugInstall
-	nvim +UpdateRemotePlugins
-	nvim +GoInstallBinaries
+all: plugins config
 
-bootstrap:
-	sudo pacman --noconfirm -S neovim python-neovim ctags
-	pip3 install jedi
+.PHONY: config
+config:
+	@echo "Copying vimrc"
+	mkdir -p $(VIMHOME)
+	cp vimrc $(VIMRC)
+	@echo "Install ftplugin"
+	cp -pr ./ftplugin  $(VIMHOME)
 
-install:
-	echo "Copying vimrc"
-	mkdir -p $(NVIM_HOME)
-	cp vimrc $(NVIM_HOME)/init.vim
-	echo "Install ftplugin"
-	cp -pr ./ftplugin  $(NVIM_HOME)
-	mkdir -p $(NVIM_SPELL)
-	curl "http://ftp.vim.org/pub/vim/runtime/spell/en.utf-8.spl" -o $(NVIM_SPELL)/en.utf-8.spl
+.PHONY: plugins
+plugins:
+	@echo "Install plugins"
+	rm -rf $(VIMPKG)
+	mkdir -p $(VIMPKG)/start
+	cp -r ./vendor/* $(VIMPKG)/start
 
+.PHONY: uninstall
 uninstall:
-	rm -rf $(NVIM_HOME)
+	rm -rf $(VIMHOME)
+	rm -rf $(VIMRC)
+
+.PHONY: vendor
+vendor:
+	@./tools/vendor

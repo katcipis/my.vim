@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+function vendor() {
+    local plugins_manifest="${1}"
+    local vendordir="${2}"
+    local deps=$(cat ${plugins_manifest})
+
+    rm -rf "${vendordir}"
+    mkdir -p "${vendordir}"
+
+    for dep in ${deps}; do
+        local plugin_name=$(echo "${dep}" | cut -d "/" -f 2)
+        local cloneurl=$(printf "git@github.com:%s.git" ${dep})
+        local clonedir=$(printf "%s/%s" ${vendordir} ${plugin_name})
+
+        printf "\nvendoring plugin[%s]\n" "${dep}"
+        printf "cloning[%s] to [%s]\n\n" "${cloneurl}" "${clonedir}"
+
+        git clone "${cloneurl}" "${clonedir}"
+        rm -rf "${clonedir}/.git"
+    done
+
+    echo
+    echo "vendored deps with success"
+}
+
+vendor plugins vendor
