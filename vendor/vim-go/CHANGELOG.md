@@ -51,6 +51,7 @@ IMPROVEMENTS:
 * Add highlighting of sections reported by gopls diagnostics' errors
   and warnings.
   [[GH-2569]](https://github.com/fatih/vim-go/pull/2569)
+  [[GH-2643]](https://github.com/fatih/vim-go/pull/2643)
 * Make the highlighting of fzf decls configurable.
   [[GH-2572]](https://github.com/fatih/vim-go/pull/2572)
   [[GH-2579]](https://github.com/fatih/vim-go/pull/2579)
@@ -61,6 +62,8 @@ IMPROVEMENTS:
   disabled.
   [[GH-2605]](https://github.com/fatih/vim-go/pull/2605)
   [[GH-2609]](https://github.com/fatih/vim-go/pull/2609)
+  [[GH-2638]](https://github.com/fatih/vim-go/pull/2638)
+  [[GH-2640]](https://github.com/fatih/vim-go/pull/2640)
 * Add a buffer level option, `b:go_fmt_options`, to control formatting options
   per buffer.
   [[GH-2613]](https://github.com/fatih/vim-go/pull/2613)
@@ -81,7 +84,6 @@ IMPROVEMENTS:
 * Update the issue template to ask for the gopls version and
   `:GoReportGitHubIssue` to provide it.
   [[GH-2630]](https://github.com/fatih/vim-go/pull/2630)
-
 
 
 BUG FIXES:
