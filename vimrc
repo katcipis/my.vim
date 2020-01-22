@@ -75,6 +75,9 @@ hi clear SpellBad
 hi SpellBad cterm=underline
 set spell
 
+"Better clipboard integration
+set clipboard=unnamedplus
+
 "colorscheme
 " WHY: Crappy vim 8 true color stuff
 " See: :h xterm-true-color
