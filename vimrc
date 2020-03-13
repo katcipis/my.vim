@@ -70,6 +70,9 @@ nnoremap <Leader>s yiw:%s,<C-r>",
 "vimgrep word under cursor
 nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.suffix
 
+"open word under cursos on browser (default gx doesn't work properly...)
+nmap gx yiW:!xdg-open <C-r>" &<CR>
+
 "Better spell checking
 hi clear SpellBad
 hi SpellBad cterm=underline
