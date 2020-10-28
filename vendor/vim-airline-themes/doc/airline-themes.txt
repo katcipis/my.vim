@@ -31,7 +31,6 @@ Currently this repository contains the following themes:
     * ayu_light
     * ayu_mirage
     * ayu_dark
-    * badcat
     * badwolf
     * base16 (|airline-theme-base16|)
     * base16_vim (|airline-theme-base16_vim|)
@@ -121,6 +120,7 @@ Currently this repository contains the following themes:
     * raven
     * ravenpower
     * seagull
+    * seoul256
     * serene
     * sierra
     * silver

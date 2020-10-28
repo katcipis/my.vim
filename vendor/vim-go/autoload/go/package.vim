@@ -139,15 +139,12 @@ endfunction
 " directory. A relative path is returned when in a null module at or below the
 " current working directory..
 function! go#package#FromPath(arg) abort
-  let l:cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
-  let l:dir = getcwd()
-
   let l:path = fnamemodify(a:arg, ':p')
   if !isdirectory(l:path)
     let l:path = fnamemodify(l:path, ':h')
   endif
 
-  execute l:cd fnameescape(l:path)
+  let l:dir = go#util#Chdir(l:path)
   try
     if glob("*.go") == ""
       " There's no Go code in this directory. We might be in a module directory
@@ -165,7 +162,7 @@ function! go#package#FromPath(arg) abort
 
     let l:importpath = split(l:out, '\n')[0]
   finally
-    execute l:cd fnameescape(l:dir)
+    call go#util#Chdir(l:dir)
   endtry
 
   " go list returns '_CURRENTDIRECTORY' if the directory is in a null module
@@ -232,10 +229,17 @@ function! go#package#Complete(ArgLead, CmdLine, CursorPos) abort
 
   let vendordirs = s:vendordirs()
 
+  let l:modcache = go#util#env('gomodcache')
+
   let ret = {}
   for dir in dirs
     " this may expand to multiple lines
     let root = split(expand(dir . '/pkg/' . s:goos . '_' . s:goarch), "\n")
+    if l:modcache != ''
+      let root = add(root, l:modcache)
+    else
+      let root = add(root, expand(dir . '/pkg/mod'))
+    endif
     let root = add(root, expand(dir . '/src'), )
     let root = extend(root, vendordirs)
     let root = add(root, module)
@@ -260,9 +264,8 @@ function! go#package#Complete(ArgLead, CmdLine, CursorPos) abort
             let glob = module.dir
           endif
         elseif stridx(module.path, a:ArgLead) == 0 && stridx(module.path, '/', len(a:ArgLead)) < 0
-          " use the module directory when a:ArgLead is contained in
-          " module.path and module.path does not have any path segments after
-          " a:ArgLead.
+          " use the module directory when module.path begins wih a:ArgLead and
+          " module.path does not have any path segments after a:ArgLead.
           let glob = module.dir
         else
           continue
@@ -276,6 +279,11 @@ function! go#package#Complete(ArgLead, CmdLine, CursorPos) abort
           " directories manually?
           if fnamemodify(candidate, ':t') == 'vendor'
             continue
+          endif
+          " if path contains version info, strip it out
+          let vidx = strridx(candidate, '@')
+          if vidx >= 0
+            let candidate = strpart(candidate, 0, vidx)
           endif
           let candidate .= '/'
         elseif candidate !~ '\.a$'
