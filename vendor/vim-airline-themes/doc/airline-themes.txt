@@ -102,7 +102,9 @@ Currently this repository contains the following themes:
     * kalisi
     * kolor
     * laederon
+    * lessnoise
     * light
+    * lighthaus
     * lucius
     * luna
     * minimalist (|airline-theme-minimalist|)
@@ -110,6 +112,7 @@ Currently this repository contains the following themes:
     * monochrome
     * murmur
     * night_owl
+    * nord-minimal
     * onedark (|airline-theme-onedark|)
     * ouo
     * owo
@@ -138,6 +141,7 @@ Currently this repository contains the following themes:
     * wombat
     * xtermlight
     * zenburn
+    * transparent
 
 ==============================================================================
 NAME                                         *airline-themes-configuration*
