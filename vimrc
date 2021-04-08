@@ -55,8 +55,8 @@ nnoremap <Leader>c :bd<CR>
 nnoremap <Leader>t :edit
 
 "Fast quickfix navigation
-map <C-LEFT> :cprev<CR>
-map <C-RIGHT> :cnext<CR>
+map <Leader>p :cprev<CR>
+map <Leader>n :cnext<CR>
 
 "Disable highlighting for current search only
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
@@ -70,7 +70,7 @@ nnoremap <Leader>s yiw:%s,<C-r>",
 "vimgrep word under cursor
 nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.suffix
 
-"open word under cursos on browser (default gx doesn't work properly...)
+"open word under cursor on browser (default gx doesn't work properly...)
 nmap gx yiW:!xdg-open <C-r>" &<CR>
 
 "Better spell checking

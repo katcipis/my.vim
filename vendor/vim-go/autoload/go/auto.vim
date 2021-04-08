@@ -57,15 +57,15 @@ function! s:echo_go_info()
   endif
   let item = v:completed_item
 
-  if !has_key(item, "info")
+  if !has_key(item, "user_data")
     return
   endif
 
-  if empty(item.info)
+  if empty(item.user_data)
     return
   endif
 
-  redraws! | echo "vim-go: " | echohl Function | echon item.info | echohl None
+  redraws! | echo "vim-go: " | echohl Function | echon item.user_data | echohl None
 endfunction
 
 let s:timer_id = 0
@@ -133,12 +133,36 @@ function! s:handler(timer_id)
 endfunction
 
 function! go#auto#fmt_autosave()
-  if !(go#config#FmtAutosave() && isdirectory(expand('%:p:h')) && expand('<afile>:p') == expand('%:p'))
+  if !(isdirectory(expand('%:p:h')) && expand('<afile>:p') == expand('%:p'))
     return
   endif
 
-  " Go code formatting on save
-  call go#fmt#Format(-1)
+  if !(go#config#FmtAutosave() || go#config#ImportsAutosave())
+    return
+  endif
+
+  " Order matters when formatting and adjusting imports, because of gopls'
+  " support for gofumpt. Gofumpt formatting will group all imports that look
+  " like a stdlib package (e.g. there's no '.' in the package path) together.
+  " When the local setting is provided, the only way to get the local imports
+  " grouped separately when gofumpt is used to format is to format first and
+  " then organize imports.
+
+  if go#config#FmtAutosave() && !(go#config#ImportsAutosave() && go#config#ImportsMode() == 'goimports')
+    call go#fmt#Format(0)
+
+    " return early when the imports mode is goimports, because there's no need
+    " to format again when goimports was run
+    if go#config#FmtCommand() == 'goimports'
+      return
+    endif
+  endif
+
+  if !go#config#ImportsAutosave()
+    return
+  endif
+
+  call go#fmt#Format(1)
 endfunction
 
 function! go#auto#metalinter_autosave()

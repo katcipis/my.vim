@@ -1,4 +1,4 @@
-" MIT License. Copyright (c) 2013-2020 Bailey Ling et al.
+" MIT License. Copyright (c) 2013-2021 Bailey Ling et al.
 " Plugin: fugitive, gina, lawrencium and vcscommand
 " vim: et ts=2 sts=2 sw=2
 
@@ -85,33 +85,44 @@ let s:names = {'0': 'index', '1': 'orig', '2':'fetch', '3':'merge'}
 let s:sha1size = get(g:, 'airline#extensions#branch#sha1_len', 7)
 
 function! s:update_git_branch()
-  if !airline#util#has_fugitive() && !airline#util#has_gina()
+  call airline#util#ignore_next_focusgain()
+  if airline#util#has_fugitive()
+    call s:config_fugitive_branch()
+  elseif airline#util#has_gina()
+    call s:config_gina_branch()
+  else
     let s:vcs_config['git'].branch = ''
     return
   endif
-  if airline#util#has_fugitive()
-    let s:vcs_config['git'].branch = exists("*FugitiveHead") ?
-          \ FugitiveHead(s:sha1size) : fugitive#head(s:sha1size)
-    if s:vcs_config['git'].branch is# 'master' &&
-          \ airline#util#winwidth() < 81
-      " Shorten default a bit
-      let s:vcs_config['git'].branch='mas'
-    endif
-  else
-    try
-      let g:gina#component#repo#commit_length = s:sha1size
-      let s:vcs_config['git'].branch = gina#component#repo#branch()
-    catch
-    endtry
-    if s:vcs_config['git'].branch is# 'master' &&
-          \ airline#util#winwidth() < 81
-      " Shorten default a bit
-      let s:vcs_config['git'].branch='mas'
-    endif
+endfunction
+
+function! s:config_fugitive_branch() abort
+  let s:vcs_config['git'].branch = exists('*FugitiveHead') ?
+        \ FugitiveHead(s:sha1size) : fugitive#head(s:sha1size)
+  if s:vcs_config['git'].branch is# 'master' &&
+        \ airline#util#winwidth() < 81
+    " Shorten default a bit
+    let s:vcs_config['git'].branch='mas'
+  endif
+endfunction
+
+function! s:config_gina_branch() abort
+  try
+    let g:gina#component#repo#commit_length = s:sha1size
+    let s:vcs_config['git'].branch = gina#component#repo#branch()
+  catch
+  endtry
+  if s:vcs_config['git'].branch is# 'master' &&
+        \ airline#util#winwidth() < 81
+    " Shorten default a bit
+    let s:vcs_config['git'].branch='mas'
   endif
 endfunction
 
 function! s:display_git_branch()
+  " disable FocusGained autocommand, might cause loops because system() causes
+  " a refresh, which causes a system() command again #2029
+  call airline#util#ignore_next_focusgain()
   let name = b:buffer_vcs_config['git'].branch
   try
     let commit = matchstr(FugitiveParse()[0], '^\x\+')
@@ -128,7 +139,6 @@ function! s:display_git_branch()
     endif
   catch
   endtry
-
   return name
 endfunction
 

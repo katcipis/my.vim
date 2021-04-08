@@ -1,4 +1,6 @@
-# NERD Commenter [![Vint](https://github.com/preservim/nerdcommenter/workflows/Vint/badge.svg)](https://github.com/preservim/nerdcommenter/actions?workflow=Vint)
+# NERD Commenter
+
+[![Vint](https://github.com/preservim/nerdcommenter/workflows/Vint/badge.svg)](https://github.com/preservim/nerdcommenter/actions?workflow=Vint)
 
 Comment functions so powerful—no comment necessary.
 
@@ -74,6 +76,9 @@ Please see the vim help system for full documentation of all options: `:help ner
 Several settings can be added to your vimrc to change the default behavior. Some examples:
 
 ```vim
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
@@ -100,6 +105,8 @@ let g:NERDToggleCheckAllLines = 1
 ```
 
 ### Default mappings
+
+> **Note:** You can turn off settings default mappings to provide your own from scratch (look at the [Settings list](#settings) above)
 
 The following key mappings are provided by default (there is also a menu provided that contains menu items corresponding to all the below mappings):
 
@@ -157,3 +164,15 @@ Most of the following mappings are for normal/visual mode only. The **|NERDComme
   * `[count]<leader>cu` **|NERDCommenterUncomment|**
 
     Uncomments the selected line(s).
+
+## Motions
+
+While the plugin does not directly support motions, you can leverage its support for selections to do something very similar. For example, to add motions to toggle comments on the paragraph text object you could use:
+```vim
+nnoremap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
+nnoremap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
+```
+
+## Contributions
+
+This plugin was originally written in 2007 by [Martin Grenfell (@scrooloose)](https://github.com/scrooloose/). Lots of features and many of the supported filetypes have come from [community contributors](https://github.com/preservim/nerdcommenter/graphs/contributors). Since 2016 it has been maintained primarily by [Caleb Maclennan (@alerque)](https://github.com/alerque). Additional file type support, bug fixes, and new feature contributons are all welcome, please send them as Pull Requests on Github. If you can't contribute yourself please also feel free to open issues to report problems or request features.
