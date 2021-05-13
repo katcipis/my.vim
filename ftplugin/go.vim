@@ -5,6 +5,7 @@ set nolist
 
 nnoremap <Leader>b :GoTest<CR>
 nnoremap <Leader>r :GoRename<CR>
+nnoremap <Leader>d :GoDef<CR>
 nnoremap <Leader>l :GoMetaLinter<CR>
 
 let g:go_rename_command = "gopls"
