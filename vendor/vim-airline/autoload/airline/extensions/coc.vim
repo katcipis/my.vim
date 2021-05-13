@@ -38,7 +38,8 @@ function! airline#extensions#coc#get(type) abort
   if empty(cnt)
     return ''
   else
-    return (is_err ? s:error_symbol : s:warning_symbol).cnt
+    let lnum = printf('(L%d)', (info.lnums)[0])
+    return (is_err ? s:error_symbol : s:warning_symbol).cnt.lnum
   endif
 endfunction
 
@@ -47,8 +48,13 @@ function! airline#extensions#coc#get_status() abort
   return airline#util#shorten(get(g:, 'coc_status', ''), 91, 9)
 endfunction
 
+function! airline#extensions#coc#get_current_function() abort
+  return get(b:, 'coc_current_function', '')
+endfunction
+
 function! airline#extensions#coc#init(ext) abort
   call airline#parts#define_function('coc_error_count', 'airline#extensions#coc#get_error')
   call airline#parts#define_function('coc_warning_count', 'airline#extensions#coc#get_warning')
   call airline#parts#define_function('coc_status', 'airline#extensions#coc#get_status')
+  call airline#parts#define_function('coc_current_function', 'airline#extensions#coc#get_current_function')
 endfunction

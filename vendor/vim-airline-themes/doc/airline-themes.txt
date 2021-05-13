@@ -27,6 +27,7 @@ Currently this repository contains the following themes:
 
     * alduin
     * angr
+    * apprentice
     * atomic
     * ayu_light
     * ayu_mirage
@@ -94,6 +95,8 @@ Currently this repository contains the following themes:
     * durant
     * faryfloss
     * fruit_punch
+    * google_dark
+    * google_light
     * hybrid
     * hybridline
     * jay
@@ -218,7 +221,7 @@ Has no effect if using true/24-bit color. To enable 16-color mode: >
 ------------------------------------------------------------------------------
                                              *g:airline_minimalist_showmod*
 
-Highlight when the buffer is modified.
+Highlight when the buffer is modified. >
     let g:airline_minimalist_showmod = 1
 <
 *airline-theme-onedark*

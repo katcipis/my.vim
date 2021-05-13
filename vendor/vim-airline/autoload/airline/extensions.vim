@@ -262,6 +262,11 @@ function! airline#extensions#load()
     call add(s:loaded_ext, 'bookmark')
   endif
 
+  if get(g:, 'airline#extensions#scrollbar#enabled', 1)
+    call airline#extensions#scrollbar#init(s:ext)
+    call add(s:loaded_ext, 'scrollbar')
+  endif
+
   if get(g:, 'airline#extensions#csv#enabled', 1)
         \ && (get(g:, 'loaded_csv', 0) || exists(':Table'))
     call airline#extensions#csv#init(s:ext)
@@ -465,7 +470,7 @@ function! airline#extensions#load()
   if !get(g:, 'airline#extensions#disable_rtp_load', 0)
     " load all other extensions, which are not part of the default distribution.
     " (autoload/airline/extensions/*.vim outside of our s:script_path).
-    for file in split(globpath(&rtp, "autoload/airline/extensions/*.vim"), "\n")
+    for file in split(globpath(&rtp, 'autoload/airline/extensions/*.vim', 1), "\n")
       " we have to check both resolved and unresolved paths, since it's possible
       " that they might not get resolved properly (see #187)
       if stridx(tolower(resolve(fnamemodify(file, ':p'))), s:script_path) < 0

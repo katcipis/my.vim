@@ -118,6 +118,10 @@ CONFIGURATION                                        *airline-configuration*
 There are a couple configuration values available (shown with their default
 values):
 
+* enable experimental features >
+  " Currently: Enable Vim9 Script implementation
+  let g:airline_experimental = 1
+
 * the separator used on the left side >
   let g:airline_left_sep='>'
 <
@@ -169,7 +173,7 @@ values):
     endif
   endfunction
 <
-* if you want to update your highlights without effecting the airline theme,
+* if you want to update your highlights without affecting the airline theme,
   you can do so using the AirlineAfterTheme autocmd. >
   function! s:update_highlights()
     hi CursorLine ctermbg=none guibg=none
@@ -296,6 +300,9 @@ values):
 * Display a short path in statusline: >
   let g:airline_stl_path_style = 'short'
 >
+* Display a only file name in statusline: >
+  let g:airline_section_c_only_filename = 1
+>
 =============================================================================
 COMMANDS                                                  *airline-commands*
 
@@ -348,6 +355,8 @@ its contents. >
   let g:airline_left_sep = '▶'
   let g:airline_right_sep = '«'
   let g:airline_right_sep = '◀'
+  let g:airline_symbols.colnr = '㏇'
+  let g:airline_symbols.colnr = '℅'
   let g:airline_symbols.crypt = '🔒'
   let g:airline_symbols.linenr = '☰'
   let g:airline_symbols.linenr = '␊'
@@ -369,6 +378,7 @@ its contents. >
   let g:airline_right_sep = ''
   let g:airline_right_alt_sep = ''
   let g:airline_symbols.branch = ''
+  let g:airline_symbols.colnr = ''
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = '☰'
   let g:airline_symbols.maxlinenr = ''
@@ -1345,6 +1355,12 @@ groups:
   airline_tabhid:	hidden buffer
   airline_tabhid_right: idem, but on the right
 
+-------------------------------------                      *airline-scrollbar*
+
+Displays an Ascii Scrollbar for active windows with a width > 200.
+
+* enable/disable scrollbar integration >
+  let g:airline#extensions#scrollbar#enabled = 1 (default: 1)
 -------------------------------------                        *airline-taboo*
 taboo.vim <https://github.com/gcmt/taboo.vim>
 
