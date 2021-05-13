@@ -73,6 +73,12 @@ nnoremap <Leader>g yiw:vimgrep /<C-r>"/g **/*.suffix
 "open word under cursor on browser (default gx doesn't work properly...)
 nmap gx yiW:!xdg-open <C-r>" &<CR>
 
+"some tabularize fun
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
+
 "Better spell checking
 hi clear SpellBad
 hi SpellBad cterm=underline
