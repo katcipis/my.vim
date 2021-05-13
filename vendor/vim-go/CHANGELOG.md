@@ -1,6 +1,23 @@
 ## unplanned
 
 BACKWARDS INCOMPATIBILITIES:
+
+IMPROVEMENTS:
+* Add mapping for formatting, `(go-fmt)`.
+  [[GH-3209]](https://github.com/fatih/vim-go/pull/3209)
+* Add `tr` snippet for `"testing.T".Run`.
+  [[GH-3210]](https://github.com/fatih/vim-go/pull/3210)
+* Use `go env GOBIN` to determine `GOBIN`'s value.
+  [[GH-3207]](https://github.com/fatih/vim-go/pull/3207)
+
+BUG FIXES:
+* Handle terminating parenthesis on hexadecimal values.
+  [[GH-3216]](https://github.com/fatih/vim-go/pull/3216)
+
+
+## v1.25 - (April 18, 2021)
+
+BACKWARDS INCOMPATIBILITIES:
 * Remove g:go_autodetect_gopath.
   [[GH-3078]](https://github.com/fatih/vim-go/pull/3078)
 
@@ -55,6 +72,20 @@ IMPROVEMENTS:
   [[GH-3125]](https://github.com/fatih/vim-go/pull/3125)
 * Add support for `fillstruct`'s new `-tags` flag.
   [[GH-3156]](https://github.com/fatih/vim-go/pull/3156)
+* Display map key and slice elements more usefully in the local vars window in
+  debug mode.
+  [[GH-3170]](https://github.com/fatih/vim-go/pull/3170)
+* Add support for go.mod's `retract` directive.
+  [[GH-3166]](https://github.com/fatih/vim-go/pull/3166)
+* Do not execute disabled code actions.
+  [[GH-3155]](https://github.com/fatih/vim-go/pull/3155)
+* Add `:GoDebugConnect` to support connecting to an instance of delve started
+  outside of vim-go.
+  [[GH-3179]](https://github.com/fatih/vim-go/pull/3179)
+* Use gopls to adjust imports and formatting by default.
+  [[GH-2986]](https://github.com/fatih/vim-go/pull/2986)
+* Set the filetype for .tmpl files to gohtmltmpl even if it's already been set.
+  [[GH-3146]](https://github.com/fatih/vim-go/pull/3146)
 
 BUG FIXES:
 * Remove implications that terminal mode is only applied for Neovim.
@@ -85,6 +116,14 @@ BUG FIXES:
   [[GH-3128]](https://github.com/fatih/vim-go/pull/3128)
 * Organize imports correctly when `gopls` formatting uses `gofumpt`.
   [[GH-3154]](https://github.com/fatih/vim-go/pull/3154)
+* Rename all instances of an identifier when `g:go_rename_mode` is `gopls`.
+  [[GH-3181]](https://github.com/fatih/vim-go/pull/3181)
+  [[GH-3182]](https://github.com/fatih/vim-go/pull/3182)
+* Terminate a case statement in the select snippet with a colon.
+  [[GH-3185]](https://github.com/fatih/vim-go/pull/3185)
+* Fix syntax highlighting in template files.
+  [[GH-3188]](https://github.com/fatih/vim-go/pull/3188)
+  [[GH-3189]](https://github.com/fatih/vim-go/pull/3189)
 
 ## v1.24 - (September 15, 2020)
 

@@ -174,11 +174,15 @@ function! airline#util#has_custom_scm()
 endfunction
 
 function! airline#util#doautocmd(event)
+  if !exists('#airline') && a:event !=? 'AirlineToggledOff'
+    " airline disabled
+    return
+  endif
   exe printf("silent doautocmd %s User %s", s:nomodeline, a:event)
 endfunction
 
 function! airline#util#themes(match)
-  let files = split(globpath(&rtp, 'autoload/airline/themes/'.a:match.'*.vim'), "\n")
+  let files = split(globpath(&rtp, 'autoload/airline/themes/'.a:match.'*.vim', 1), "\n")
   return sort(map(files, 'fnamemodify(v:val, ":t:r")') + ('random' =~ a:match ? ['random'] : []))
 endfunction
 
