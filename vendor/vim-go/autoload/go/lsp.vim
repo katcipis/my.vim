@@ -223,12 +223,27 @@ function! s:newlsp() abort
       " TODO(bc): handle more notifications (e.g. window/showMessage).
       if a:req.method == 'textDocument/publishDiagnostics'
         call self.handleDiagnostics(a:req.params)
+      elseif a:req.method == 'window/showMessage'
+        call self.showMessage(a:req.params)
       endif
   endfunction
 
   function! l:lsp.handleDiagnostics(data) dict abort
     let self.diagnosticsQueue = add(self.diagnosticsQueue, a:data)
     call self.updateDiagnostics()
+  endfunction
+
+  function! l:lsp.showMessage(data) dict abort
+    let l:msg = a:data.message
+    if a:data.type == 1
+      call go#util#EchoError(l:msg)
+    elseif a:data.type == 2
+      call go#util#EchoWarning(l:msg)
+    elseif a:data.type == 3
+      call go#util#EchoInfo(l:msg)
+    elseif a:data.type == 4
+      " do nothing for Log messages
+    endif
   endfunction
 
   " TODO(bc): process the queue asynchronously
@@ -295,7 +310,7 @@ function! s:newlsp() abort
           call remove(self.notificationQueue[l:fname], 0)
         endif
       catch
-        call go#util#EchoError(printf('%s: %s', v:throwpoint, v:exception))
+        "call go#util#EchoError(printf('%s: %s', v:throwpoint, v:exception))
       endtry
     endfor
   endfunction
@@ -477,6 +492,7 @@ function! s:newlsp() abort
 
   let l:bin_path = go#path#CheckBinPath("gopls")
   if empty(l:bin_path)
+    let l:lsp.sendMessage = funcref('s:noop')
     return l:lsp
   endif
 
@@ -969,8 +985,18 @@ function! s:hoverHandler(next, msg) abort dict
 
   try
     let l:value = json_decode(a:msg.contents.value)
-    let l:args = [l:value.signature]
-    call call(a:next, l:args)
+
+    let l:signature = split(l:value.signature, "\n")
+    let l:msg = l:signature
+    if go#config#DocBalloon()
+      " use synopsis instead of fullDocumentation to keep the hover window
+      " small.
+      let l:doc = l:value.synopsis
+      if len(l:doc) isnot 0
+        let l:msg = l:signature + ['', l:doc]
+      endif
+    endif
+    call call(a:next, [l:msg])
   catch
     " TODO(bc): log the message and/or show an error message.
   endtry
@@ -1538,7 +1564,7 @@ function! go#lsp#FillStruct() abort
   let l:lsp = s:lspfactory.get()
 
   let l:state = s:newHandlerState('')
-  let l:handler = go#promise#New(function('s:handleCodeAction', ['refactor.rewrite', 'fill_struct'], l:state), 10000, '')
+  let l:handler = go#promise#New(function('s:handleCodeAction', ['refactor.rewrite', 'apply_fix'], l:state), 10000, '')
   let l:state.handleResult = l:handler.wrapper
   let l:state.error = l:handler.wrapper
   let l:state.handleError = function('s:handleCodeActionError', [l:fname], l:state)
@@ -1741,15 +1767,14 @@ function s:applyTextEdits(bufnr, msg) abort
       continue
     endif
 
-    let l:startcontent = getline(l:startline)
-    let l:preSliceEnd = 0
+    " Assume that l:startcontent will be an empty string. When the replacement
+    " is not at the beginning of the line, then l:startcontent must be what
+    " comes before the start position on the start line.
+    let l:startcontent = ''
     if l:msg.range.start.character > 0
+      let l:startcontent = getline(l:startline)
       let l:preSliceEnd = go#lsp#lsp#PositionOf(l:startcontent, l:msg.range.start.character-1) - 1
       let l:startcontent = l:startcontent[:l:preSliceEnd]
-    elseif l:endline == l:startline && (l:msg.range.end.character == 0 || l:msg.range.start.character == 0)
-      " l:startcontent should be the empty string when l:text is a
-      " replacement at the beginning of the line.
-      let l:startcontent = ''
     endif
 
     let l:endcontent = getline(l:endline)
@@ -1820,7 +1845,7 @@ function! s:textEditLess(left, right) abort
     endif
   endif
 
-  " return 0, because a:left an a:right refer to the same position.
+  " return 0, because a:left and a:right refer to the same position.
   return 0
 endfunction
 
@@ -1874,7 +1899,7 @@ function! s:lineinfile(fname, line) abort
 
     return l:filecontents[-1]
   catch
-    call go#util#EchoError(printf('%s (line %s): %s at %s', a:fname, a:line, v:exception, v:throwpoint))
+    "call go#util#EchoError(printf('%s (line %s): %s at %s', a:fname, a:line, v:exception, v:throwpoint))
     return -1
   endtry
 endfunction
