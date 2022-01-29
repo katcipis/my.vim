@@ -7,13 +7,67 @@ IMPROVEMENTS:
   [[GH-3209]](https://github.com/fatih/vim-go/pull/3209)
 * Add `tr` snippet for `"testing.T".Run`.
   [[GH-3210]](https://github.com/fatih/vim-go/pull/3210)
+  [[GH-3220]](https://github.com/fatih/vim-go/pull/3220)
 * Use `go env GOBIN` to determine `GOBIN`'s value.
   [[GH-3207]](https://github.com/fatih/vim-go/pull/3207)
+* List register in the debugger.
+  [[GH-3221]](https://github.com/fatih/vim-go/pull/3221)
+* Install the latest release of tools that seem to be using tags to do releases
+  instead of installing from their master/main branch.
+  [[GH-3227]](https://github.com/fatih/vim-go/pull/3227)
+* Expose error message when `gopls` cannot be found and
+  `g:go_echo_command_info` is set.
+  [[GH-3244]](https://github.com/fatih/vim-go/pull/3244)
+* Install all tools in module aware mode in preparation for Go 1.17 release.
+  [[GH-3226]](https://github.com/fatih/vim-go/pull/3226)
+* Add `g:go_doc_balloon` to allow godoc to be displayed in hover balloons.
+  [[GH-3252]](https://github.com/fatih/vim-go/pull/3252)
+* Default to using `revive` in place of `golint`.
+  [[GH-3248]](https://github.com/fatih/vim-go/pull/3248)
+* Teach `:GoDebugPrint` to show function call return values.
+  [[GH-3256]](https://github.com/fatih/vim-go/pull/3256)
+* Do not enable keyify unless in GOPATH.
+  [[GH-3095]](https://github.com/fatih/vim-go/pull/3095)
+* Show LSP messages to users.
+  [[GH-3058]](https://github.com/fatih/vim-go/pull/3058)
+* Check omnifunc's value before executing actions on CompletedDone event.
+  [[GH-3274]](https://github.com/fatih/vim-go/pull/3274)
+* Highlight new form of build constraints.
+  [[GH-3292]](https://github.com/fatih/vim-go/pull/3292)
+* Teach `:GoDiagnostics` to handle package pattern arguments.
+  [[GH-3297]](https://github.com/fatih/vim-go/pull/3297)
+* Add `g:go_debug_subsitute_paths` to support debugging applications when the
+  source is hosted in a local location that is different from where the binary
+  was compiled.
+  [[GH-3301]](https://github.com/fatih/vim-go/pull/3301)
+* Wrap text in the fzf preview window by default.
+  [[GH-3310]](https://github.com/fatih/vim-go/pull/3310)
+* Wait for up to five seconds when opening a connection to a remote debugger.
+  [[GH-3312]](https://github.com/fatih/vim-go/pull/3312)
+* Install tools with `go install` instead of `go get`.
+  [[GH-3317]](https://github.com/fatih/vim-go/pull/3317)
+* Update `:GoPlay` to use `go.dev/play` instead of `play.golang.org`.
+  [[GH-3331]](https://github.com/fatih/vim-go/pull/3331)
 
 BUG FIXES:
 * Handle terminating parenthesis on hexadecimal values.
   [[GH-3216]](https://github.com/fatih/vim-go/pull/3216)
-
+* Fix applying text edits from gopls.
+  [[GH-3231]](https://github.com/fatih/vim-go/pull/3231)
+* Apply arguments to `:GoCoverageBrowser`.
+  [[GH-3240]](https://github.com/fatih/vim-go/pull/3240)
+* Fix `:GoFillStruct` when `g:go_fillstruct_mode` is `gopls`.
+  [[GH-3279]](https://github.com/fatih/vim-go/pull/3279)
+* Fix example in `g:go_metalinter_enabled` documentation.
+  [[GH-3291]](https://github.com/fatih/vim-go/pull/3291)
+* Fix changing directories in older Vims.
+  [[GH-3299]](https://github.com/fatih/vim-go/pull/3299)
+* Highlight the receive type when method declarations that omit the receiver
+  identifier.
+  [[GH-3306]](https://github.com/fatih/vim-go/pull/3306)
+* Do not highlight misspellings in import paths.
+  [[GH-3308]](https://github.com/fatih/vim-go/pull/3308)
+  [[GH-3321]](https://github.com/fatih/vim-go/pull/3321)
 
 ## v1.25 - (April 18, 2021)
 
