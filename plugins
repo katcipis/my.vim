@@ -6,3 +6,6 @@ morhetz/gruvbox
 fatih/vim-go
 godlygeek/tabular
 hashivim/vim-terraform
+vim-syntastic/syntastic
+preservim/tagbar
+rust-lang/rust.vim
