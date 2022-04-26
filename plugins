@@ -8,4 +8,5 @@ godlygeek/tabular
 hashivim/vim-terraform
 vim-syntastic/syntastic
 preservim/tagbar
+dense-analysis/ale
 rust-lang/rust.vim
