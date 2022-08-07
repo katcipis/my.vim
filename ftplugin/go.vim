@@ -9,7 +9,9 @@ nnoremap <Leader>d :GoDef<CR>
 nnoremap <Leader>l :GoMetaLinter<CR>
 
 "autocomplete on .
-" inoremap <buffer> . .<C-x><C-o>
+autocmd CompleteDone * pclose
+" set completeopt=menu
+inoremap <buffer> . .<C-x><C-o>
 
 let g:go_rename_command = "gopls"
 let g:go_fmt_command = "goimports"
