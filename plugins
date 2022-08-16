@@ -5,7 +5,6 @@ vim-airline/vim-airline-themes
 morhetz/gruvbox
 fatih/vim-go
 godlygeek/tabular
-hashivim/vim-terraform
 vim-syntastic/syntastic
 preservim/tagbar
 dense-analysis/ale
