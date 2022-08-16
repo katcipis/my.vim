@@ -10,7 +10,8 @@ config:
 	mkdir -p $(VIMHOME)
 	cp vimrc $(VIMRC)
 	@echo "Install ftplugin"
-	cp -pr ./ftplugin  $(VIMHOME)
+	cp -pr ./ftplugin $(VIMHOME)
+	cp -pr ./ftdetect $(VIMHOME)
 
 .PHONY: plugins
 plugins:
