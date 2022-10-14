@@ -5,8 +5,9 @@ set nolist
 
 nnoremap <Leader>b :GoTest<CR>
 nnoremap <Leader>r :GoRename<CR>
-nnoremap <Leader>d :GoDef<CR>
+nnoremap <Leader>d :GoDoc<CR>
 nnoremap <Leader>l :GoMetaLinter<CR>
+nnoremap <Leader>i :GoInfo<CR>
 
 "autocomplete on .
 autocmd CompleteDone * pclose
