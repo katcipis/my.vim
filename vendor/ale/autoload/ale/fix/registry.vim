@@ -47,6 +47,11 @@ let s:default_registry = {
 \       'suggested_filetypes': ['bzl'],
 \       'description': 'Format BUILD and .bzl files with buildifier.',
 \   },
+\   'css-beautify': {
+\       'function': 'ale#fixers#css_beautify#Fix',
+\       'suggested_filetypes': ['css'],
+\       'description': 'Format CSS using css-beautify from js-beautify.',
+\    },
 \   'deno': {
 \       'function': 'ale#fixers#deno#Fix',
 \       'suggested_filetypes': ['typescript'],
@@ -221,6 +226,11 @@ let s:default_registry = {
 \       'suggested_filetypes': ['swift'],
 \       'description': 'Apply SwiftFormat to a file.',
 \   },
+\   'syntax_tree': {
+\       'function': 'ale#fixers#syntax_tree#Fix',
+\       'suggested_filetypes': ['ruby'],
+\       'description': 'Fix ruby files with stree write',
+\   },
 \   'apple-swift-format': {
 \       'function': 'ale#fixers#appleswiftformat#Fix',
 \       'suggested_filetypes': ['swift'],
@@ -253,8 +263,8 @@ let s:default_registry = {
 \   },
 \   'clang-format': {
 \       'function': 'ale#fixers#clangformat#Fix',
-\       'suggested_filetypes': ['c', 'cpp', 'cuda'],
-\       'description': 'Fix C/C++ and cuda files with clang-format.',
+\       'suggested_filetypes': ['c', 'cpp', 'cs', 'cuda', 'java', 'javascript', 'json', 'objc', 'proto'],
+\       'description': 'Fix C, C++, C#, CUDA, Java, JavaScript, JSON, ObjectiveC and Protobuf files with clang-format.',
 \   },
 \   'cmakeformat': {
 \       'function': 'ale#fixers#cmakeformat#Fix',
@@ -375,6 +385,11 @@ let s:default_registry = {
 \       'function': 'ale#fixers#shfmt#Fix',
 \       'suggested_filetypes': ['sh'],
 \       'description': 'Fix sh files with shfmt.',
+\   },
+\   'sqlfluff': {
+\       'function': 'ale#fixers#sqlfluff#Fix',
+\       'suggested_filetypes': ['sql'],
+\       'description': 'Fix SQL files with sqlfluff.',
 \   },
 \   'sqlfmt': {
 \       'function': 'ale#fixers#sqlfmt#Fix',
@@ -509,7 +524,7 @@ let s:default_registry = {
 \   'html-beautify': {
 \       'function': 'ale#fixers#html_beautify#Fix',
 \       'suggested_filetypes': ['html', 'htmldjango'],
-\       'description': 'Fix HTML files with html-beautify.',
+\       'description': 'Fix HTML files with html-beautify from js-beautify.',
 \   },
 \   'lua-format': {
 \       'function': 'ale#fixers#lua_format#Fix',
@@ -523,7 +538,7 @@ let s:default_registry = {
 \   },
 \   'dprint': {
 \       'function': 'ale#fixers#dprint#Fix',
-\       'suggested_filetypes': ['javascript', 'typescript', 'json', 'markdown'],
+\       'suggested_filetypes': ['dockerfile', 'javascript', 'json', 'markdown', 'toml', 'typescript'],
 \       'description': 'Pluggable and configurable code formatting platform',
 \   },
 \   'stylua': {
@@ -560,6 +575,16 @@ let s:default_registry = {
 \       'function': 'ale#fixers#zigfmt#Fix',
 \       'suggested_filetypes': ['zig'],
 \       'description': 'Official formatter for Zig',
+\   },
+\   'raco_fmt': {
+\       'function': 'ale#fixers#raco_fmt#Fix',
+\       'suggested_filetypes': ['racket'],
+\       'description': 'Fix Racket files with raco fmt.',
+\   },
+\   'ruff': {
+\       'function': 'ale#fixers#ruff#Fix',
+\       'suggested_filetypes': ['python'],
+\       'description': 'Fix python files with ruff.',
 \   }
 \}
 
