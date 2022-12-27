@@ -146,7 +146,7 @@ values):
   (if enough space is available) >
   let g:airline_detect_spelllang=1
 <
-  Set to 'flag' to get a unicode icon of the relavant country flag instead of
+  Set to 'flag' to get a unicode icon of the relevant country flag instead of
   the 'spelllang' itself
 
 * enable iminsert detection >
@@ -165,7 +165,7 @@ values):
 <
   Note: Only the dark theme is distributed with vim-airline. For more themes,
   checkout the vim-airline-themes repository
-  (github.com/vim-airline/vim-airline-themes)
+  (https://github.com/vim-airline/vim-airline-themes)
 
 * if you want to patch the airline theme before it gets applied, you can
   supply the name of a function where you can modify the palette. >
@@ -386,6 +386,7 @@ its contents. >
   let g:airline_symbols.paste = '∥'
   let g:airline_symbols.spell = 'Ꞩ'
   let g:airline_symbols.notexists = 'Ɇ'
+  let g:airline_symbols.notexists = '∄'
   let g:airline_symbols.whitespace = 'Ξ'
 
   " powerline symbols
@@ -394,7 +395,7 @@ its contents. >
   let g:airline_right_sep = ''
   let g:airline_right_alt_sep = ''
   let g:airline_symbols.branch = ''
-  let g:airline_symbols.colnr = ' :'
+  let g:airline_symbols.colnr = ' ℅:'
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ' :'
   let g:airline_symbols.maxlinenr = '☰ '
@@ -564,7 +565,7 @@ characters.
   let g:airline#extensions#branch#displayed_head_limit = 10
 <
 * customize formatting of branch name >
-  " default value leaves the name unmodifed
+  " default value leaves the name unmodified
   let g:airline#extensions#branch#format = 0
 
   " to only show the tail, e.g. a branch 'feature/foo' becomes 'foo', use
@@ -649,6 +650,12 @@ coc <https://github.com/neoclide/coc.nvim>
 <
 * enable/disable coc status display >
   g:airline#extensions#coc#show_coc_status = 1
+
+* change the error format (%C - error count, %L - line number): >
+  let airline#extensions#coc#stl_format_err = '%C(L%L)'
+<
+* change the warning format (%C - error count, %L - line number): >
+  let airline#extensions#coc#stl_format_warn = '%C(L%L)'
 <
 -------------------------------------                    *airline-commandt*
 command-t <https://github.com/wincent/command-t>
@@ -729,7 +736,7 @@ you can use.
   let g:airline#extensions#default#section_truncate_width = {
       \ 'b': 79,
       \ 'x': 60,
-      \ 'y': 88,
+      \ 'y': 80,
       \ 'z': 45,
       \ 'warning': 80,
       \ 'error': 80,
@@ -966,8 +973,17 @@ nvimlsp <https://github.com/neovim/nvim-lsp>
 * nvimlsp error_symbol >
   let airline#extensions#nvimlsp#error_symbol = 'E:'
 <
-* nvimlsp warning >
+* nvimlsp warning - needs v:lua.vim.diagnostic.get
   let airline#extensions#nvimlsp#warning_symbol = 'W:'
+
+* nvimlsp show_line_numbers - needs v:lua.vim.diagnostic.get
+  let airline#extensions#nvimlsp#show_line_numbers = 1
+
+* nvimlsp open_lnum_symbol - needs v:lua.vim.diagnostic.get
+  let airline#extensions#nvimlsp#open_lnum_symbol = '(L'
+
+* nvimlsp close_lnum_symbol - needs v:lua.vim.diagnostic.get
+  let airline#extensions#nvimlsp#close_lnum_symbol = ')'
 
 -------------------------------------                    *airline-obsession*
 vim-obsession <https://github.com/tpope/vim-obsession>
@@ -1040,7 +1056,7 @@ title accordingly.
 rufo <https://github.com/ruby-formatter/rufo-vim>
 
 The rufo (Ruby Formatter) extension merely displays whether vim-rufo is
-currently enabled, in the z sction of the statusline.
+currently enabled, in the z section of the statusline.
 
 * enable/disable vim-rufo integration >
   let g:airline#extensions#rufo#enabled = 1
@@ -1202,7 +1218,7 @@ Note: Not displayed if the number of tabs is less than 1
   nmap <Leader>99 <Plug>AirlineSelectTab99
 <
   The <Plug>AirlineSelect<Prev/Next>Tab mapping handles counts as well,
-  so one can handle arbirtrarily number of buffers/tabs.
+  so one can handle arbitrarily number of buffers/tabs.
 
   Mode 3 is exactly the same as mode 2, except the indexing start at 01,
   exposing 99 mappings: >
@@ -1304,6 +1320,13 @@ Note: Not displayed if the number of tabs is less than 1
      /home/user/project/subdir/file.ext -> subdir/file.ext
 
   let g:airline#extensions#tabline#formatter = 'short_path'
+
+  " `short_path` can also display file name as relative to the current
+  " directory, if possible
+  let g:airline#extensions#tabline#fnamemod = ':h'
+
+  " or display file name as relative to the home directory, if possible
+  let g:airline#extensions#tabline#fnamemod = ':~:h'
 
 * defines the customized format() function to display tab title in tab mode. >
   let g:airline#extensions#tabline#tabtitle_formatter = 'MyTabTitleFormatter'
@@ -1537,7 +1560,7 @@ State indicators:
 * use vimtex specific wordcount function
   for TeX buffers Note: this more accurate
   but may slow down Vim) >
-  let g:airline#extensions#vimtex#wordcount = 1 
+  let g:airline#extensions#vimtex#wordcount = 1
 
 -------------------------------------                   *airline-virtualenv*
 virtualenv <https://github.com/jmcantrell/vim-virtualenv>
@@ -1547,7 +1570,7 @@ virtualenv <https://github.com/jmcantrell/vim-virtualenv>
 <
 * enable virtualenv for additional filetypes:
   (default: python): >
-  let g:airline#extensions#virtualenv#ft = ['python', 'markdown']
+  let g:airline#extensions#virtualenv#ft = ['python', 'markdown', 'rmd']
 <
 -------------------------------------                   *airline-vista*
 vista.vim <https://github.com/liuchengxu/vista.vim>
@@ -1590,7 +1613,7 @@ vista.vim <https://github.com/liuchengxu/vista.vim>
 
   " this can also be configured for an individual buffer
   let b:airline_whitespace_checks =
-    \  [ 'indent', 'trailing', 'long', 'mixed-indent-file', 'conflicts ]
+    \  [ 'indent', 'trailing', 'long', 'mixed-indent-file', 'conflicts' ]
 <
 * configure the max number of lines where whitespace checking is enabled. >
   let g:airline#extensions#whitespace#max_lines = 20000
@@ -1653,7 +1676,7 @@ vim-windowswap <https://github.com/wesQ3/vim-windowswap>
   " The default value matches filetypes typically used for documentation
   " such as markdown and help files. Default is:
   let g:airline#extensions#wordcount#filetypes =
-    \ ['asciidoc', 'help', 'mail', 'markdown', 'nroff', 'org', 'plaintex', 'rst', 'tex', 'text'])
+    \ ['asciidoc', 'help', 'mail', 'markdown', 'rmd', 'nroff', 'org', 'plaintex', 'rst', 'tex', 'text'])
   " Use ['all'] to enable for all filetypes.
 
 * defines the name of a formatter for word count will be displayed: >
@@ -1684,7 +1707,8 @@ vim-windowswap <https://github.com/wesQ3/vim-windowswap>
 -------------------------------------                     *airline-xkblayout*
 
 The vim-xkblayout extension will only be enabled, if the global variable
-`g:XkbSwitchLib` is set. It should be set to a C library that will be called
+`g:XkbSwitchLib` is set or `FcitxCurrentIM()` exists.
+`g:XkbSwitchLib` should be set to a C library that will be called
 using |libcall()| with the function name `Xkb_Switch_getXkbLayout`. For
 details on how to use it, see e.g. <https://github.com/ierton/xkb-switch>
 
@@ -1703,11 +1727,17 @@ details on how to use it, see e.g. <https://github.com/ierton/xkb-switch>
     \ {'2SetKorean': 'KR', 'Chinese': 'CN', 'Japanese': 'JP'}
 
 * define path to the backend switcher library
+  Linux with gnome (Install https://github.com/lyokha/g3kb-switch): >
+   let g:XkbSwitchLib = '/usr/lib/libg3kbswitch.so'
+<
   Linux (Install https://github.com/ierton/xkb-switch): >
-   let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.so'
+   let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
 <
   macOS (Install https://github.com/vovkasm/input-source-switcher): >
    let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
+<
+  Linux with fcitx (Install https://github.com/fcitx/fcitx5):
+   Install https://github.com/lilydjwg/fcitx.vim) to get `FcitxCurrentIM()`
 
 -------------------------------------                     *airline-xtabline*
 xtabline <https://github.com/mg979/vim-xtabline>
