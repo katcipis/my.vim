@@ -234,6 +234,7 @@ function! airline#extensions#load()
         \ || exists('g:loaded_gitgutter')
         \ || exists('g:loaded_changes')
         \ || exists('g:loaded_quickfixsigns')
+        \ || exists(':Gitsigns')
         \ || exists(':CocCommand'))
     call airline#extensions#hunks#init(s:ext)
     call add(s:loaded_ext, 'hunks')
@@ -487,7 +488,7 @@ function! airline#extensions#load()
             \ && stridx(tolower(fnamemodify(file, ':p')), s:script_path) < 0
         let name = fnamemodify(file, ':t:r')
         if !get(g:, 'airline#extensions#'.name.'#enabled', 1) ||
-            \ index(s:loaded_ext, name) > -1
+            \ index(s:loaded_ext, name.'*') > -1
           continue
         endif
         try
