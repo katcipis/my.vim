@@ -11,7 +11,6 @@ config:
 	cp vimrc $(VIMRC)
 	@echo "Install ftplugin"
 	cp -pr ./ftplugin $(VIMHOME)
-	cp -pr ./ftdetect $(VIMHOME)
 
 .PHONY: plugins
 plugins:
