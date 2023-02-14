@@ -9,3 +9,4 @@ vim-syntastic/syntastic
 preservim/tagbar
 dense-analysis/ale
 rust-lang/rust.vim
+hashivim/vim-terraform
