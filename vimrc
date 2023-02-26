@@ -51,9 +51,6 @@ nnoremap <Leader>j :bprevious<CR>
 nnoremap <Leader>k :bnext<CR>
 nnoremap <Leader>c :bd<CR>
 
-"Opening stuff :D
-nnoremap <Leader>t :edit
-
 "Fast quickfix navigation
 map <Leader>p :cprev<CR>
 map <Leader>n :cnext<CR>
@@ -102,3 +99,6 @@ colorscheme gruvbox
 
 "tagbar
 nmap <F8> :TagbarToggle<CR>
+
+"Opening stuff :D
+nnoremap <F1> :NERDTree<CR>
