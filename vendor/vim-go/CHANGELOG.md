@@ -10,8 +10,6 @@ IMPROVEMENTS:
 * Add `:GoTestFile`.
   [[GH-3486]](https://github.com/fatih/vim-go/pull/3486)
   [[GH-3487]](https://github.com/fatih/vim-go/pull/3487)
-* Make `:GoRun` async.
-  [[GH-3086]](https://github.com/fatih/vim-go/pull/3086)
 * Add `(go-fill-struct)` mapping.
   [[GH-3502]](https://github.com/fatih/vim-go/pull/3502)
   [[GH-3503]](https://github.com/fatih/vim-go/pull/3503)
@@ -21,7 +19,14 @@ IMPROVEMENTS:
 * Add `:GoExtract` command and related mapping.
   [[GH-3506]](https://github.com/fatih/vim-go/pull/3506)
 * Halt the debugger after a connection is establish with `:GoDebugConnect`.
-  [[GH-3514]](https://github.com/fatih/vim-go/pull/3516)
+  [[GH-3514]](https://github.com/fatih/vim-go/pull/3514)
+  [[GH-3520]](https://github.com/fatih/vim-go/pull/3520)
+* Clarify `:GoImpl` usage message.
+  [[GH-3522]](https://github.com/fatih/vim-go/pull/3522)
+* Add commands and mappings related to godoc to the godoc preview window.
+  [[GH-3527]](https://github.com/fatih/vim-go/pull/3527)
+* Link goPredefinedIdentifiers to Constant instead of goBoolean by default.
+  [[GH-3528]](https://github.com/fatih/vim-go/pull/3528)
 
 BUG FIXES:
 * Update [impl](https://github.com/josharian/impl) source path after its default branch was changed from master to main.
