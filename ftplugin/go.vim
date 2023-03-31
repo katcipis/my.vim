@@ -8,6 +8,9 @@ nnoremap <Leader>r :GoRename<CR>
 nnoremap <Leader>d :GoDoc<CR>
 nnoremap <Leader>l :GoMetaLinter<CR>
 nnoremap <Leader>i :GoInfo<CR>
+nnoremap <Leader>a :GoAlternate<CR>
+" how to do this ?
+" vnoremap <Leader>x '<,'>GoExtract<CR>
 
 "autocomplete on .
 autocmd CompleteDone * pclose
