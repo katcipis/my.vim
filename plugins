@@ -1,3 +1,5 @@
+hrsh7th/nvim-cmp
+neovim/nvim-lspconfig
 preservim/nerdtree
 scrooloose/nerdcommenter
 gcmt/wildfire.vim
@@ -8,6 +10,6 @@ fatih/vim-go
 godlygeek/tabular
 vim-syntastic/syntastic
 preservim/tagbar
-dense-analysis/ale
+simrat39/rust-tools.nvim
 rust-lang/rust.vim
 hashivim/vim-terraform
