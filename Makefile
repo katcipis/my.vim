@@ -1,33 +1,11 @@
 NEOVIM_HOME=$(HOME)/.config/nvim
-NEOVIM_RC=$(NEOVIM_HOME)/init.vim
-NEOVIM_PLUGIN=$(HOME)/.local/share/nvim/site/pack/plugins/start
-NEOVIM_FTPLUGIN=$(HOME)/.local/share/nvim/site/ftplugin
 
-all: config plugins
+all: install
 
-.PHONY: config
-config:
-	@echo "Copying vimrc"
-	mkdir -p $(NEOVIM_HOME)
-	cp init.vim $(NEOVIM_RC)
-	@echo "Install ftplugin"
-	mkdir -p $(NEOVIM_FTPLUGIN)
-	cp ./ftplugin/* $(NEOVIM_FTPLUGIN)
-
-.PHONY: plugins
-plugins:
-	@echo "Install plugins"
-	rm -rf $(NEOVIM_PLUGIN)
-	mkdir -p $(NEOVIM_PLUGIN)
-	cp -r ./vendor/* $(NEOVIM_PLUGIN)
-	@nvim +GoUpdateBinaries +qall
-
-.PHONY: uninstall
-uninstall:
+.PHONY: install
+install:
 	rm -rf $(NEOVIM_HOME)
-	rm -rf $(NEOVIM_PLUGIN)
-	rm -rf $(NEOVIM_FTPLUGIN)
-
-.PHONY: vendor
-vendor:
-	@./tools/vendor
+	mkdir -p $(NEOVIM_HOME)
+	cp init.lua $(NEOVIM_HOME)
+	cp -r lua $(NEOVIM_HOME)
+	cp -r after $(NEOVIM_HOME)
