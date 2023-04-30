@@ -15,11 +15,13 @@
 
 # Introduction
 
-My vimrc configuration, plugins and some other vim useful stuff
+My neovim configuration, plugins and some other vim useful stuff
 (mainly taken from [Practical Vim: Edit Text at the Speed of Thought](http://pragprog.com/book/dnvim/practical-vim)).
 
 
 # Install
+
+You need to installl npm (some language server needs it).
 
 Just run:
 
