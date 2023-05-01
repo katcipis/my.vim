@@ -2,12 +2,28 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'scrooloose/nerdcommenter'
-  use 'fatih/vim-go'
-  use 'hashivim/vim-terraform'
+  --use 'fatih/vim-go'
+  --use 'hashivim/vim-terraform'
+
+  use {
+    'gcmt/wildfire.vim',
+    tag = 'v2.0',
+  }
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v4.0.0",
+    requires = 'nvim-tree/nvim-web-devicons',
   }
 
   use {

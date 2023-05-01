@@ -8,7 +8,8 @@ install:
 	mkdir -p $(NEOVIM_HOME)
 	cp init.lua $(NEOVIM_HOME)
 	cp -r lua $(NEOVIM_HOME)
-	#cp -r after $(NEOVIM_HOME)
+	cp -r after $(NEOVIM_HOME)
+	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 .PHONY: cleanup
 cleanup:
