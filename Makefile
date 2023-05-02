@@ -3,13 +3,18 @@ NEOVIM_HOME=$(HOME)/.config/nvim
 all: install
 
 .PHONY: install
-install:
-	rm -rf $(NEOVIM_HOME)
+install: cleanup
 	mkdir -p $(NEOVIM_HOME)
 	cp init.lua $(NEOVIM_HOME)
 	cp -r lua $(NEOVIM_HOME)
 	cp -r after $(NEOVIM_HOME)
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+	
+.PHONY: config
+config:
+	cp init.lua $(NEOVIM_HOME)
+	cp -r lua $(NEOVIM_HOME)
+	cp -r after $(NEOVIM_HOME)
 
 .PHONY: cleanup
 cleanup:
