@@ -1,30 +1,30 @@
-VIMHOME=$(HOME)/.vim
-VIMRC=$(HOME)/.vimrc
-VIMPKG=$(VIMHOME)/pack/3rdparty
+NEOVIM_HOME=$(HOME)/.config/nvim
 
-all: plugins config
+all: install
 
+.PHONY: install
+install: cleanup bootstrap
+	mkdir -p $(NEOVIM_HOME)
+	cp init.lua $(NEOVIM_HOME)
+	cp -r lua $(NEOVIM_HOME)
+	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+	cp -r after $(NEOVIM_HOME)
+	cp -r ftplugin $(NEOVIM_HOME)
+	
 .PHONY: config
 config:
-	@echo "Copying vimrc"
-	mkdir -p $(VIMHOME)
-	cp vimrc $(VIMRC)
-	@echo "Install ftplugin"
-	cp -pr ./ftplugin $(VIMHOME)
+	cp init.lua $(NEOVIM_HOME)
+	cp -r lua $(NEOVIM_HOME)
+	cp -r after $(NEOVIM_HOME)
+	cp -r ftplugin $(NEOVIM_HOME)
 
-.PHONY: plugins
-plugins:
-	@echo "Install plugins"
-	rm -rf $(VIMPKG)
-	mkdir -p $(VIMPKG)/start
-	cp -r ./vendor/* $(VIMPKG)/start
-	@vim +GoUpdateBinaries +qall
+.PHONY: cleanup
+cleanup:
+	rm -rf $(NEOVIM_HOME)
+	rm -rf $(HOME)/.local/share/nvim
 
-.PHONY: uninstall
-uninstall:
-	rm -rf $(VIMHOME)
-	rm -rf $(VIMRC)
+.PHONY: bootstrap
+bootstrap:
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+ 		$(HOME)/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-.PHONY: vendor
-vendor:
-	@./tools/vendor
