@@ -27,8 +27,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.cmd('set termguicolors')
-
 local colorscheme = 'gruvbox'
 
 -- Check if the colorscheme file exists
