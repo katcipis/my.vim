@@ -58,12 +58,14 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+-- For now not doing formatting for Go with LSP because I want goimports behavior
+-- I also wanted to easily run tests...I have a feeling I can do this with LSP
+-- and ditch vim-go entirely, but don't have time right now.
 lsp.format_on_save({
     servers = {
         ['lua_ls'] = { 'lua' },
         ['rust_analyzer'] = { 'rust' },
         ['terraformls'] = { 'terraform' },
-        ['gopls'] = { 'go' },
     }
 })
 
