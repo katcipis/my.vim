@@ -27,4 +27,12 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.cmd('colorscheme rose-pine')
+vim.cmd('set termguicolors')
+
+local colorscheme = 'gruvbox'
+
+-- Check if the colorscheme file exists
+if vim.fn.exists('colors/' .. colorscheme .. '.vim') == 1 then
+    -- Set the colorscheme
+    vim.cmd('colorscheme ' .. colorscheme)
+end
