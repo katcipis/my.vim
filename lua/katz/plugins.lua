@@ -27,10 +27,10 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'rose-pine/neovim',
-        as = 'rose-pine',
+        'morhetz/gruvbox',
+        as = 'gruvbox',
         config = function()
-            vim.cmd('colorscheme rose-pine')
+            vim.cmd('colorscheme gruvbox')
         end
     }
 
