@@ -2,6 +2,7 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
+-- Available here: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 lsp.ensure_installed({
     'rust_analyzer',
     'gopls',
@@ -13,6 +14,9 @@ lsp.ensure_installed({
     'bashls',
     'clangd',
     'dockerls',
+    'jsonls',
+    'marksman',
+    'grammarly',
 })
 
 -- Fix Undefined global 'vim'
