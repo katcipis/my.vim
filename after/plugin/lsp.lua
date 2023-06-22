@@ -70,6 +70,7 @@ lsp.format_on_save({
         ['lua_ls'] = { 'lua' },
         ['rust_analyzer'] = { 'rust' },
         ['terraformls'] = { 'terraform' },
+        ['jsonls'] = { 'json' },
     }
 })
 
