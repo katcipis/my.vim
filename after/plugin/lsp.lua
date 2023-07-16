@@ -16,7 +16,6 @@ lsp.ensure_installed({
     'dockerls',
     'jsonls',
     'marksman',
-    'grammarly',
 })
 
 -- Fix Undefined global 'vim'
