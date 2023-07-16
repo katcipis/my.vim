@@ -10,6 +10,7 @@ install: cleanup bootstrap
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 	cp -r after $(NEOVIM_HOME)
 	cp -r ftplugin $(NEOVIM_HOME)
+	go install golang.org/x/tools/cmd/goimports@v0.11.0
 	
 .PHONY: config
 config:
