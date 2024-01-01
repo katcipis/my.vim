@@ -8,6 +8,10 @@ return require('packer').startup(function(use)
         tag = 'v2.0',
     }
     use {
+        'folke/trouble.nvim',
+        tag = 'v2.10.0',
+    }
+    use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
