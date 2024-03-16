@@ -10,6 +10,7 @@ return require('packer').startup(function(use)
     use {
         'folke/trouble.nvim',
         tag = 'v2.10.0',
+        requires = 'nvim-tree/nvim-web-devicons',
     }
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
