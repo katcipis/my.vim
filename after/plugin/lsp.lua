@@ -20,7 +20,7 @@ require('mason-lspconfig').setup({
         'dockerls',
         'jsonls',
         'marksman',
-        'vale_ls',
+        --'vale_ls',
     },
     handlers = {
         lsp.default_setup,
