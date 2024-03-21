@@ -8,6 +8,7 @@ install: cleanup bootstrap
 	cp init.lua $(NEOVIM_HOME)
 	cp -r lua $(NEOVIM_HOME)
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+	nvim --headless +GoInstallBinaries +q
 	cp -r after $(NEOVIM_HOME)
 	cp -r ftplugin $(NEOVIM_HOME)
 	go install golang.org/x/tools/cmd/goimports@v0.18.0
