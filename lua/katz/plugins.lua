@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
     }
     use {
         'akinsho/bufferline.nvim',
-        tag = "v4.0.0",
+        tag = "v4.6.0",
         requires = 'nvim-tree/nvim-web-devicons',
     }
     use {
