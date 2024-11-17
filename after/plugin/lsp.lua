@@ -20,7 +20,7 @@ require('mason-lspconfig').setup({
         'dockerls',
         'jsonls',
         'marksman',
-        'harper_ls',
+        --'harper_ls',
     },
     handlers = {
         lsp.default_setup,
