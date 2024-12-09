@@ -39,6 +39,10 @@ set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 highlight ColorColumn ctermbg=green guibg=green
 call matchadd('ColorColumn', '\%80v', 80)
 
+" Change <Leader>
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 "Lets not work with arrows anymore :-)
 "Lets use the arrows to work with windows :D
 nnoremap <RIGHT> <C-w>l
@@ -93,3 +97,13 @@ colorscheme gruvbox
 
 "tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+let g:ale_completion_enabled = 1
+
+" ALE mappings
+nnoremap <Leader>h :ALEHover<CR>
+nnoremap <Leader>r :ALERename<CR>
+nnoremap <Leader>gd :ALEGoToDefinition<CR>
+nnoremap <Leader>gr :ALEFindReferences<CR>

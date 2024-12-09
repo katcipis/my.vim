@@ -3,18 +3,14 @@ set softtabstop=8
 set noexpandtab
 set nolist
 
-nnoremap <Leader>b :GoTest<CR>
 nnoremap <Leader>r :GoRename<CR>
-nnoremap <Leader>d :GoDoc<CR>
+nnoremap <Leader>h :GoDoc<CR>
 nnoremap <Leader>l :GoMetaLinter<CR>
 nnoremap <Leader>i :GoInfo<CR>
 nnoremap <Leader>a :GoAlternate<CR>
-" how to do this ?
-" vnoremap <Leader>x '<,'>GoExtract<CR>
 
 "autocomplete on .
 autocmd CompleteDone * pclose
-" set completeopt=menu
 
 let g:go_rename_command = "gopls"
 let g:go_fmt_command = "goimports"
