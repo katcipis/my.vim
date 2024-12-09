@@ -8,6 +8,7 @@ nnoremap <Leader>h :GoDoc<CR>
 nnoremap <Leader>l :GoMetaLinter<CR>
 nnoremap <Leader>i :GoInfo<CR>
 nnoremap <Leader>a :GoAlternate<CR>
+nnoremap <Leader>gr :GoReferrer<CR>
 
 "autocomplete on .
 autocmd CompleteDone * pclose
