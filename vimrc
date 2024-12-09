@@ -95,6 +95,9 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='violet'
 colorscheme gruvbox
 
+" Some nice fuzzy finding for opening files
+nnoremap <Leader>o :CtrlP<CR>
+
 "tagbar
 nmap <F8> :TagbarToggle<CR>
 
