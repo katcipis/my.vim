@@ -26,7 +26,7 @@ You need to installl npm (some language server needs it).
 Just run:
 
 ```
-make
+just
 ```
 
 And it will install all plugins and configs. It will overwrite the current
