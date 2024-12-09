@@ -3,7 +3,6 @@ vim-airline/vim-airline
 vim-airline/vim-airline-themes
 morhetz/gruvbox
 fatih/vim-go
-godlygeek/tabular
 preservim/tagbar
 dense-analysis/ale
 rust-lang/rust.vim
