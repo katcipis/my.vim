@@ -15,7 +15,6 @@ autocmd CompleteDone * pclose
 
 let g:go_rename_command = "gopls"
 let g:go_fmt_command = "goimports"
-let g:go_metalinter_command = "golangci-lint"
 let g:go_highlight_chan_whitespace_error = 1
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_extra_types = 1
