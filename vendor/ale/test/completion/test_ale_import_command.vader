@@ -14,7 +14,7 @@ Before:
   let g:ale_completion_enabled = 0
   let g:ale_completion_autoimport = 0
   let g:ale_completion_max_suggestions = 50
-  let g:ale_linters = {'typescript': ['tsserver'], 'python': ['pyre']}
+  let g:ale_linters = {'typescript': ['tsserver'], 'python': ['pyrefly']}
   unlet! b:ale_linters
 
   let g:server_started_value = 1
@@ -87,6 +87,12 @@ Before:
 
     let g:ale_enabled = 1
     let g:ale_lint_on_text_changed = 1
+
+    let g:ale_queue_call_list = []
+    call g:LastHandleCallback(a:conn_id, a:message)
+    AssertEqual [[0, '']], g:ale_queue_call_list
+
+    let g:ale_lint_on_text_changed = v:true
 
     let g:ale_queue_call_list = []
     call g:LastHandleCallback(a:conn_id, a:message)
@@ -228,7 +234,7 @@ Execute(ALEImport should request imports correctly for tsserver):
   \ [
   \   [0, 'ts@completions', {
   \     'file': expand('%:p'),
-  \     'includeExternalModuleExports': 1,
+  \     'includeExternalModuleExports': v:true,
   \     'offset': 21,
   \     'line': 2,
   \     'prefix': 'missingword',
