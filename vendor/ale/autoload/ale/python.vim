@@ -26,7 +26,6 @@ function! ale#python#FindProjectRootIni(buffer) abort
         " If you change this, update ale-python-root documentation.
         if filereadable(l:path . '/MANIFEST.in')
         \|| filereadable(l:path . '/setup.cfg')
-        \|| filereadable(l:path . '/pytest.ini')
         \|| filereadable(l:path . '/tox.ini')
         \|| filereadable(l:path . '/.pyre_configuration.local')
         \|| filereadable(l:path . '/mypy.ini')
@@ -55,11 +54,12 @@ endfunction
 " Given a buffer number, find the project root directory for Python.
 " The root directory is defined as the first directory found while searching
 " upwards through paths, including the current directory, until a path
-" containing an init file (one from MANIFEST.in, setup.cfg, pytest.ini,
-" tox.ini) is found. If it is not possible to find the project root directory
-" via init file, then it will be defined as the first directory found
-" searching upwards through paths, including the current directory, until no
-" __init__.py files is found.
+" containing an configuration file is found. (See list above)
+"
+" If it is not possible to find the project root directory via configuration
+" file, then it will be defined as the first directory found searching upwards
+" through paths, including the current directory, until no __init__.py files
+" is found.
 function! ale#python#FindProjectRoot(buffer) abort
     let l:ini_root = ale#python#FindProjectRootIni(a:buffer)
 
@@ -108,12 +108,17 @@ function! ale#python#AutoVirtualenvEnvString(buffer) abort
 
     if !empty(l:venv_dir)
         let l:strs = [ ]
+        " venv/bin directory
+        let l:pathdir = join([l:venv_dir, s:bin_dir], s:sep)
 
         " expand PATH correctly inside of the appropriate shell.
+        " set VIRTUAL_ENV to point to venv
         if has('win32')
-            call add(l:strs, 'set PATH=' . ale#Escape(l:venv_dir) . ';%PATH% && ')
+            call add(l:strs, 'set PATH=' . ale#Escape(l:pathdir) . ';%PATH% && ')
+            call add(l:strs, 'set VIRTUAL_ENV=' . ale#Escape(l:venv_dir) . ' && ')
         else
-            call add(l:strs, 'PATH=' . ale#Escape(l:venv_dir) . '":$PATH" ')
+            call add(l:strs, 'PATH=' . ale#Escape(l:pathdir) . '":$PATH" ')
+            call add(l:strs, 'VIRTUAL_ENV=' . ale#Escape(l:venv_dir) . ' ')
         endif
 
         return join(l:strs, '')
@@ -195,7 +200,7 @@ function! ale#python#PoetryPresent(buffer) abort
     return findfile('poetry.lock', expand('#' . a:buffer . ':p:h') . ';') isnot# ''
 endfunction
 
-" Detects whether a poetry environment is present.
+" Detects whether a uv environment is present.
 function! ale#python#UvPresent(buffer) abort
     return findfile('uv.lock', expand('#' . a:buffer . ':p:h') . ';') isnot# ''
 endfunction

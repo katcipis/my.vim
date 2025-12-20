@@ -22,10 +22,14 @@ function! ale_linters#php#phpstan#GetCommand(buffer, version) abort
 
     let l:memory_limit = ale#Var(a:buffer, 'php_phpstan_memory_limit')
     let l:memory_limit_option = !empty(l:memory_limit)
-    \   ? ' --memory-limit ' . ale#Escape(l:memory_limit)
+    \   ? ' --memory-limit=' . ale#Escape(l:memory_limit)
     \   : ''
 
     let l:level =  ale#Var(a:buffer, 'php_phpstan_level')
+
+    if type(l:level) is v:t_number
+        let l:level = string(l:level)
+    endif
 
     if empty(l:level) && empty(ale_linters#php#phpstan#FindConfigFile(a:buffer))
         " if no configuration file is found, then use 4 as a default level
@@ -81,6 +85,10 @@ function! ale_linters#php#phpstan#FindConfigFile(buffer) abort
 
     if empty(l:result)
         let l:result = ale#path#FindNearestFile(a:buffer, 'phpstan.neon.dist')
+    endif
+
+    if empty(l:result)
+        let l:result = ale#path#FindNearestFile(a:buffer, 'phpstan.dist.neon')
     endif
 
     return l:result

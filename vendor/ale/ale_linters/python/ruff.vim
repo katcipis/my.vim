@@ -34,6 +34,22 @@ function! ale_linters#python#ruff#GetExecutable(buffer) abort
     return ale#python#FindExecutable(a:buffer, 'python_ruff', ['ruff'])
 endfunction
 
+function! ale_linters#python#ruff#RunWithVersionCheck(buffer) abort
+    let l:executable = ale_linters#python#ruff#GetExecutable(a:buffer)
+    let l:exec_args = l:executable =~? '\(pipenv\|poetry\|uv\)$'
+    \   ? ' run ruff'
+    \   : ''
+
+    let l:command = ale#Escape(l:executable) . l:exec_args . ' --version'
+
+    return ale#semver#RunWithVersionCheck(
+    \   a:buffer,
+    \   l:executable,
+    \   l:command,
+    \   function('ale_linters#python#ruff#GetCommand'),
+    \)
+endfunction
+
 function! ale_linters#python#ruff#GetCwd(buffer) abort
     if ale#Var(a:buffer, 'python_ruff_change_directory')
         " Run from project root if found, else from buffer dir.
@@ -72,20 +88,35 @@ function! ale_linters#python#ruff#Handle(buffer, lines) abort
         try
             let l:item = json_decode(l:line)
         catch
-            let l:item = v:null
+            " If we can't decode a line, skip it.
+            continue
         endtry
 
-        if !empty(l:item)
-            call add(l:output, {
-            \   'lnum': l:item.location.row,
-            \   'col': l:item.location.column,
-            \   'end_lnum': l:item.end_location.row,
-            \   'end_col': l:item.end_location.column - 1,
-            \   'code': l:item.code,
-            \   'text': l:item.message,
-            \   'type': l:item.code =~? '\vE\d+' ? 'E' : 'W',
-            \})
+        if empty(l:item)
+            continue
         endif
+
+        if (l:item.code is# 'W291' || l:item.code is# 'W293')
+        \&& !ale#Var(a:buffer, 'warn_about_trailing_whitespace')
+            " Skip warnings for trailing whitespace if the option is off.
+            continue
+        endif
+
+        if l:item.code is# 'W391'
+        \&& !ale#Var(a:buffer, 'warn_about_trailing_blank_lines')
+            " Skip warnings for trailing blank lines if the option is off
+            continue
+        endif
+
+        call add(l:output, {
+        \   'lnum': l:item.location.row,
+        \   'col': l:item.location.column,
+        \   'end_lnum': l:item.end_location.row,
+        \   'end_col': l:item.end_location.column - 1,
+        \   'code': l:item.code,
+        \   'text': l:item.message,
+        \   'type': l:item.code =~? '\vE\d+' ? 'E' : 'W',
+        \})
     endfor
 
     return l:output
@@ -95,12 +126,7 @@ call ale#linter#Define('python', {
 \   'name': 'ruff',
 \   'executable': function('ale_linters#python#ruff#GetExecutable'),
 \   'cwd': function('ale_linters#python#ruff#GetCwd'),
-\   'command': {buffer -> ale#semver#RunWithVersionCheck(
-\       buffer,
-\       ale_linters#python#ruff#GetExecutable(buffer),
-\       '%e --version',
-\       function('ale_linters#python#ruff#GetCommand'),
-\   )},
+\   'command': function('ale_linters#python#ruff#RunWithVersionCheck'),
 \   'callback': 'ale_linters#python#ruff#Handle',
 \   'output_stream': 'both',
 \   'read_buffer': 1,

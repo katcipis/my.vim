@@ -62,6 +62,36 @@ function! ale#path#FindNearestDirectory(buffer, directory_name) abort
     return ''
 endfunction
 
+" Given a buffer and a filename, find the nearest file or directory by
+" searching upwards through the paths relative to the given buffer.
+function! ale#path#FindNearestFileOrDirectory(buffer, filename) abort
+    let l:buffer_filename = fnamemodify(bufname(a:buffer), ':p')
+    let l:buffer_filename = fnameescape(l:buffer_filename)
+
+    let l:relative_path_file = findfile(a:filename, l:buffer_filename . ';')
+    let l:relative_path_dir = finddir(a:filename, l:buffer_filename . ';')
+
+    " If we find both a file and directory, choose the shorter response by
+    " making the longer one empty instead.
+    if !empty(l:relative_path_file) && !empty(l:relative_path_dir)
+        if strlen(l:relative_path_file) > strlen(l:relative_path_dir)
+            let l:relative_path_dir = ''
+        else
+            let l:relative_path_file = ''
+        endif
+    endif
+
+    if !empty(l:relative_path_file)
+        return fnamemodify(l:relative_path_file, ':p')
+    endif
+
+    if !empty(l:relative_path_dir)
+        return fnamemodify(l:relative_path_dir, ':p')
+    endif
+
+    return ''
+endfunction
+
 " Given a buffer, a string to search for, and a global fallback for when
 " the search fails, look for a file in parent paths, and if that fails,
 " use the global fallback path instead.
@@ -115,20 +145,24 @@ endfunction
 
 " Return 1 if a path is an absolute path.
 function! ale#path#IsAbsolute(filename) abort
-    if has('win32') && a:filename[:0] is# '\'
-        return 1
+    if has('win32')
+        return a:filename[:0] =~# '[\\/]' || a:filename[0:2] =~? '[A-Z]:[/\\]'
+    else
+        return a:filename[:0] is# '/'
     endif
-
-    " Check for /foo and C:\foo, etc.
-    return a:filename[:0] is# '/' || a:filename[1:2] is# ':\'
 endfunction
 
 let s:temp_dir = ale#path#Simplify(fnamemodify(ale#util#Tempname(), ':h:h'))
+let s:resolved_temp_dir = resolve(s:temp_dir)
 
 " Given a filename, return 1 if the file represents some temporary file
-" created by Vim.
+" created by Vim. If the temporary location is symlinked (e.g. macOS), some
+" linters may report the resolved version of the path, so both are checked.
 function! ale#path#IsTempName(filename) abort
-    return ale#path#Simplify(a:filename)[:len(s:temp_dir) - 1] is# s:temp_dir
+    let l:filename = ale#path#Simplify(a:filename)
+
+    return l:filename[:len(s:temp_dir) - 1] is# s:temp_dir
+    \|| l:filename[:len(s:resolved_temp_dir) - 1] is# s:resolved_temp_dir
 endfunction
 
 " Given a base directory, which must not have a trailing slash, and a
